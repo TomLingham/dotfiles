@@ -8,6 +8,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'notech/jellybeans.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
@@ -23,6 +24,7 @@ Plug 'rking/ag.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Valloric/YouCompleteMe'
 Plug 'digitaltoad/vim-pug'
+Plug 'lambdatoast/elm.vim'
 
 call plug#end()
 
@@ -56,14 +58,20 @@ let g:solarized_termcolors = 16
 colorscheme solarized
 
 " highlight and unhighlight the current line when in insert mode
-" autocmd InsertEnter * set cul
-" autocmd InsertLeave * set nocul
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
 
 " show line Numbers
 set nu
 
 " store some history for the future generations
 let history=100
+
+" Disable linewrap cause its poo
+set nowrap
+
+" Stop AutoPairs closing over line
+let g:AutoPairsMultilineClose = 0
 
 " when doing a search, show where it matches as it is typed
 set incsearch
@@ -159,6 +167,7 @@ nnoremap <C-l> <C-w>l
 
 " command NT toggles NERDTree
 command NT NERDTreeToggle
+let NERDTreeShowHidden=1
 
 " remove trailing white space at the end of lines
 autocmd BufWritePre * :%s/\s\+$//e

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+alias ..='cd ..'
+alias c='clear'
+alias cd..='cd ..'
+alias code='cd ~/Code'
+alias dup='docker-compose up'
+alias ddown='docker-compose down'
+alias dbuild='docker-compose build'
+alias h='cd ~'
+alias ls='ls -lah'
+alias ll='ls -lahF'
+alias src='source ~/.bash_profile'
+alias ovim='/usr/local/bin/vim'
+alias vim='nvim'
+alias v='vim'
+alias fuck='sudo $(history -p \!\!)'
+alias serve='python -m SimpleHTTPServer'
+alias palias='v ~/.bash_alias'
+alias pprof='v ~/.bash_profile'
+
