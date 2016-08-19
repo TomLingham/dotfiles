@@ -18,4 +18,3 @@ alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
 alias palias='v ~/.bash_alias'
 alias pprof='v ~/.bash_profile'
-

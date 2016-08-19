@@ -18,13 +18,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 "----- Javascript
-Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs'
 "----- HTML
-Plug 'digitaltoad/vim-pug'
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 "----- Git
@@ -32,6 +31,7 @@ Plug 'tpope/vim-fugitive'
 "----- Theme & Style
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "----- Misc.
 Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
@@ -66,16 +66,13 @@ nmap <leader>e :wq!<CR>
 nmap <leader>; :tabedit $MYVIMRC<CR>
 nmap <leader>s :sp<CR>
 nmap <leader>v :vsp<CR>
+nmap <leader>p :Explore<CR>
 
 "-------------------------
 " Setup Default Makers
 "-------------------------
 let g:neomake_javascript_enabled_makers = ['eslint']
-
-" load local eslint in the project root
-" modified from https://github.com/mtscout6/syntastic-local-eslint.vim
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+autocmd BufWritePost,BufEnter * Neomake
 
 "---------------------------
 " Syntax highlighting for odd exntensions
@@ -97,12 +94,18 @@ let g:ctrlp_show_hidden = 1
 " allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start
 
+" Set netrw style to branch
+let g:netrw_liststyle=3
+
 " highlight and unhighlight the current line when in insert mode
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
 " show line Numbers
 set nu
+
+" Set paste toggle shortcut
+set pastetoggle=<F10>
 
 " hide files in netrw
 let g:netrw_list_hide= '.*\.DS_Store$'
@@ -140,9 +143,6 @@ set modelines=0
 
 " make vims power level go over 9000!
 set ttyfast
-
-" sert vertical split character
-set fillchars+=vert:\s
 
 " min amount of lines to show around cursor
 set scrolloff=5
