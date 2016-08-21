@@ -9,9 +9,9 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction<Paste>
 
-"----------------------
+"-----------------
 " Initialise Plug
-"----------------------
+"-----------------
 call plug#begin('~/.vim/plugged')
 
 "----- Elixir
@@ -41,22 +41,29 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
-"------------------
+"----------
 " Deoplete
-"------------------
+"----------
 let g:deoplete#enable_at_startup = 1
 
 filetype plugin indent on
 
-"------------------------------
+"--------------------------
 " Set Gruvbox Color Scheme
-"------------------------------
+"--------------------------
 colorscheme gruvbox
 set background=dark
 
-"-----------------------
+"----------
+" Setup Ag
+"----------
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+"------------------
 " Setup Leader Key
-"-----------------------
+"------------------
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 
@@ -68,25 +75,34 @@ nmap <leader>s :sp<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>p :Explore<CR>
 
-"-------------------------
-" Setup Default Makers
-"-------------------------
+"----------------------------------
+" Setup Default Makers for Neomake
+"----------------------------------
 let g:neomake_javascript_enabled_makers = ['eslint']
+
+"-------------------------
+" Setup Auto Run Commands
+"-------------------------
+
+" run neomake on file save
 autocmd BufWritePost,BufEnter * Neomake
 
-"---------------------------
-" Syntax highlighting for odd exntensions
-"---------------------------
+" highlight and unhighlight the current line when in insert mode
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
+" remove trailing white space at the end of lines
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Set .babelrc file to json format on open and new
+autocmd BufNewFile,BufRead .babelrc set filetype=json
+
+"--------
+" Tweaks
+"--------
 
 " enable default syntax highlighting
 syntax enable
-
-au BufNewFile,BufRead .eslintrc set filetype=yaml
-au BufNewFile,BufRead .babelrc set filetype=json
-
-"---------------
-" Tweaks
-"---------------
 
 " CTRLP to show hidden by default
 let g:ctrlp_show_hidden = 1
@@ -96,10 +112,6 @@ set backspace=indent,eol,start
 
 " Set netrw style to branch
 let g:netrw_liststyle=3
-
-" highlight and unhighlight the current line when in insert mode
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
 
 " show line Numbers
 set nu
@@ -207,5 +219,3 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" remove trailing white space at the end of lines
-autocmd BufWritePre * :%s/\s\+$//e
