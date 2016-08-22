@@ -38,6 +38,7 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -79,6 +80,7 @@ nmap <leader>p :Explore<CR>
 " Setup Default Makers for Neomake
 "----------------------------------
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 
 "-------------------------
 " Setup Auto Run Commands
@@ -96,6 +98,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Set .babelrc file to json format on open and new
 autocmd BufNewFile,BufRead .babelrc set filetype=json
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 
 "--------
 " Tweaks
