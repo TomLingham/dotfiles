@@ -29,7 +29,7 @@ Plug 'mattn/emmet-vim'
 "----- Git
 Plug 'tpope/vim-fugitive'
 "----- Theme & Style
-Plug 'morhetz/gruvbox'
+Plug 'TomLingham/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "----- Misc.
@@ -99,6 +99,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Set .babelrc file to json format on open and new
 autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead hosts set filetype=dosini
 
 "--------
 " Tweaks
@@ -222,3 +223,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-O> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
