@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 "----- Javascript
-Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
@@ -29,7 +29,7 @@ Plug 'mattn/emmet-vim'
 "----- Git
 Plug 'tpope/vim-fugitive'
 "----- Theme & Style
-Plug 'morhetz/gruvbox'
+Plug 'TomLingham/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "----- Misc.
@@ -100,6 +100,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
+autocmd BufNewFile,BufRead hosts set filetype=dosini
 
 "----------------------------
 " Airline Configuration
@@ -222,3 +223,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-O> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+

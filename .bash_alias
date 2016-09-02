@@ -18,4 +18,30 @@ alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
 alias palias='v ~/.bash_alias'
 alias pprof='v ~/.bash_profile'
-alias docker-clean='docker kill $(docker ps -a -q); docker rmi $(docker images -q)'
+
+function docker-clean {
+    if [ "$#" -ne 1 ]
+    then
+        while true; do
+            read -e -p "Are you sure you want to delete all untagged docker images? (cannot be undone) [yN]: " -i "n" yn
+            case $yn in
+                [Yy]* ) docker kill $(docker ps -a -q); docker rmi -f $(docker images | grep "^<none>" | awk '{print $3}'); break;;
+                [Nn]* ) break;;
+            esac
+        done
+    else
+
+        if [ "$1" == "all" ]
+        then
+            while true; do
+                read -e -p "Are you sure you want to delete ALL docker images? (cannot be undone) [yN]: " -i "n" yn
+                yn=${yn:-n}
+                case $yn in
+                    [Yy]* ) docker kill $(docker ps -a -q); docker rmi -f $(docker images -q); break;;
+                    [Nn]* ) break;;
+                esac
+            done
+        fi
+
+    fi
+}
