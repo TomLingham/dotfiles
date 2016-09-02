@@ -99,6 +99,20 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Set .babelrc file to json format on open and new
 autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
+
+"----------------------------
+" Airline Configuration
+"----------------------------
+set laststatus=2
+set noshowmode
+set noru
+set statusline+=%F
+
+let g:airline_powerline_fonts = 1
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 "--------
 " Tweaks
@@ -106,9 +120,6 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 
 " enable default syntax highlighting
 syntax enable
-
-" CTRLP to show hidden by default
-let g:ctrlp_show_hidden = 1
 
 " allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start
@@ -191,24 +202,14 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-"----------------------------
-" Airline Configuration
-"----------------------------
-set laststatus=2
-set noshowmode
-set noru
-set statusline+=%F
-
-let g:airline_powerline_fonts = 1
-
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
 " Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|vendor\|bower_components\|log\|tmp$',
-  \ 'file': '\.so\|\.dat\|\.DS_Store$'
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|vendor\|bower_components\|log\|tmp\|compiled_lib$',
+  \ 'file': '\.so\|\.dat\|\.DS_Store|\*?.log$'
   \ }
+
+" CTRLP to show hidden by default
+let g:ctrlp_show_hidden = 1
 
 " enable css and html highlighting in js files
 let javascript_enable_domhtmlcss = 1
@@ -221,4 +222,3 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
