@@ -10,44 +10,54 @@ function! DoRemote(arg)
 endfunction<Paste>
 
 "-----------------
-" Initialise Plug
+" Plug Packages
 "-----------------
 call plug#begin('~/.vim/plugged')
 
-"----- Elixir
-Plug 'slashmili/alchemist.vim'
-Plug 'elixir-lang/vim-elixir'
-"----- Javascript
-Plug 'othree/yajs.vim'
-Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
-Plug 'moll/vim-node'
-Plug 'carlitux/deoplete-ternjs'
-"----- HTML
-Plug 'othree/html5.vim'
-Plug 'mattn/emmet-vim'
-"----- Git
+"----$ Elixir
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+"----$ Javascript
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'elzr/vim-json', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+"----$ HTML
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+"----$ Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+"----$ Toml
+Plug 'cespare/vim-toml'
+"----$ Git
 Plug 'tpope/vim-fugitive'
-"----- Theme & Style
+"----$ Theme & Style
 Plug 'TomLingham/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"----- Misc.
+"----$ ...
 Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 
 call plug#end()
+
+filetype plugin indent on
+
+"----------
+" Commands
+"----------
+command W w
 
 "----------
 " Deoplete
 "----------
 let g:deoplete#enable_at_startup = 1
-
-filetype plugin indent on
 
 "--------------------------
 " Set Gruvbox Color Scheme
@@ -82,6 +92,9 @@ nmap <leader>p :Explore<CR>
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 
+" Stop neomake running on :wq
+autocmd! QuitPre * let g:neomake_verbose = 0
+
 "-------------------------
 " Setup Auto Run Commands
 "-------------------------
@@ -102,9 +115,9 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
 
-"----------------------------
+"-----------------------
 " Airline Configuration
-"----------------------------
+"-----------------------
 set laststatus=2
 set noshowmode
 set noru
@@ -203,14 +216,8 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" Ignore some folders and files for CtrlP indexing
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|vendor\|bower_components\|log\|tmp\|compiled_lib$',
-  \ 'file': '\.so\|\.dat\|\.DS_Store|\*?.log$'
-  \ }
-
-" CTRLP to show hidden by default
-let g:ctrlp_show_hidden = 1
+" FZF Config
+nnoremap <C-p> :FZF<CR>
 
 " enable css and html highlighting in js files
 let javascript_enable_domhtmlcss = 1
@@ -232,4 +239,3 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-

@@ -16,6 +16,7 @@ alias vim='nvim'
 alias v='vim'
 alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
+alias vend='cd ~/Source'
 alias palias='v ~/.bash_alias'
 alias pprof='v ~/.bash_profile'
 
