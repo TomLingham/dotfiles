@@ -18,14 +18,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 "----$ Javascript
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'elzr/vim-json', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'moll/vim-node', { 'for': 'javascript' }
-Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+Plug 'othree/yajs.vim'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'moll/vim-node'
+Plug 'carlitux/deoplete-ternjs'
 "----$ HTML
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
 "----$ Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
@@ -205,6 +205,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype jsx setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
