@@ -6,6 +6,8 @@ case $(hostname -s) in
         export GOPATH=~/Source/go/
         export PATH=$PATH:/usr/local/opt/go/libexec/bin
         export PATH=$PATH:$GOPATH/bin
-        export RUST_SRC_PATH=~/Source/rust/src ;;
-    *) ;;
+        export RUST_SRC_PATH=~/Source/rust/src
+        ;;
+    *)
+        ;;
 esac
