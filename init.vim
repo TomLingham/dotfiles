@@ -32,6 +32,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "----$ Toml
 Plug 'cespare/vim-toml'
+"----$ Markdown
+Plug 'gabrielelana/vim-markdown'
 "----$ Git
 Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
@@ -133,6 +135,9 @@ let g:airline_right_sep = ''
 "--------
 " Tweaks
 "--------
+
+" Disable markdown folder because it's a joke
+let g:vim_markdown_folding_disabled = 1
 
 " enable default syntax highlighting
 syntax enable
