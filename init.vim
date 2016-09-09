@@ -24,6 +24,7 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'heavenshell/vim-jsdoc'
 "----$ HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
@@ -33,7 +34,7 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "----$ Toml
 Plug 'cespare/vim-toml'
 "----$ Markdown
-Plug 'gabrielelana/vim-markdown'
+"Plug 'gabrielelana/vim-markdown'
 "----$ Git
 Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
@@ -212,6 +213,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype json setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
