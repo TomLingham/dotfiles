@@ -9,6 +9,7 @@ case $(hostname -s) in
         export PATH=$PATH:/usr/local/opt/go/libexec/bin
         export PATH=$PATH:$GOPATH/bin
         export RUST_SRC_PATH=~/Source/rust/src
+        export FZF_PATH=/usr/local/opt/fzf
         ;;
     *)
         ;;

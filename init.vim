@@ -46,8 +46,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug $FZF_PATH | Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 
 call plug#end()
@@ -112,7 +111,11 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
 " remove trailing white space at the end of lines
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * call TidyFile()
+
+function TidyFile()
+    %s/\s\+$//e
+endfunction
 
 " Set .babelrc file to json format on open and new
 autocmd BufNewFile,BufRead .babelrc set filetype=json
@@ -227,6 +230,7 @@ set undodir=~/.vim/undo//
 
 " FZF Config
 nnoremap <C-p> :FZF<CR>
+let g:fzf_layout = { 'down': '~26%' }
 
 " enable css and html highlighting in js files
 let javascript_enable_domhtmlcss = 1
@@ -241,10 +245,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-O> :call <SID>SynStack()<CR>
+" nmap <C-S-O> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
