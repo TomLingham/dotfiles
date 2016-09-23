@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 "----$ Javascript
-Plug 'othree/yajs.vim'
+"Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
@@ -74,7 +74,7 @@ set background=dark
 " Setup Ag
 "----------
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep --ignore node_modules'
 endif
 
 "------------------
@@ -233,6 +233,10 @@ let javascript_enable_domhtmlcss = 1
 
 " jsx syntax highlighting and indentation for js files
 let g:jsx_ext_required = 0
+
+" Prevent vim from using the awesome save features because it screws with
+" watchers
+set backupcopy=yes
 
 " move around splits like a boss
 nnoremap <C-j> <C-w>j
