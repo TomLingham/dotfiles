@@ -18,7 +18,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 "----$ Javascript
-"Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
@@ -33,25 +32,35 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 "----$ Toml
 Plug 'cespare/vim-toml'
-"----$ Markdown
-"Plug 'gabrielelana/vim-markdown'
 "----$ Git
 Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
-Plug 'TomLingham/gruvbox'
+Plug 'TomLingham/vim-one'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 "----$ ...
 Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug $FZF_PATH | Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
+Plug $FZF_PATH | Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 filetype plugin indent on
+
+syntax enable
+
+" Set NeoVim true colors
+set termguicolors
+
+"--------------------------
+" Set Color Scheme
+"--------------------------
+set background=dark
+let g:airline_theme='one'
+let g:one_allow_italics = 1
+colorscheme one
 
 "----------
 " Commands
@@ -62,12 +71,6 @@ command W w
 " Deoplete
 "----------
 let g:deoplete#enable_at_startup = 1
-
-"--------------------------
-" Set Gruvbox Color Scheme
-"--------------------------
-colorscheme gruvbox
-set background=dark
 
 "----------
 " Setup Ag
@@ -122,6 +125,7 @@ autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
+autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
 
 "-----------------------
 " Airline Configuration
@@ -139,12 +143,6 @@ let g:airline_right_sep = ''
 "--------
 " Tweaks
 "--------
-
-" Disable markdown folder because it's a joke
-let g:vim_markdown_folding_disabled = 1
-
-" enable default syntax highlighting
-syntax enable
 
 " allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start

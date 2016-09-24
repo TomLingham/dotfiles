@@ -19,6 +19,7 @@ alias serve='python -m SimpleHTTPServer'
 alias vend='cd ~/Source'
 alias palias='v ~/.bash_alias'
 alias pprof='v ~/.bash_profile'
+alias tm='tmux attach || tmux new -s Tomdizzle'
 
 function docker-clean {
     if [ "$#" -ne 1 ]
