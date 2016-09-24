@@ -5,6 +5,7 @@ export FZF_DEFAULT_COMMAND='ag -i --ignore compiled_lib --ignore node_modules -g
 
 case $(hostname -s) in
     macbuddy)
+        source ~/.bashrc
         export GOPATH=~/Source/go/
         export PATH=$PATH:/usr/local/opt/go/libexec/bin
         export PATH=$PATH:$GOPATH/bin

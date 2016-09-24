@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 "----$ Javascript
-Plug 'othree/yajs.vim'
+"Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
@@ -245,7 +245,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Show syntax highlighting groups for word under cursor
-" nmap <C-S-O> :call <SID>SynStack()<CR>
+nmap <C-S-T> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
