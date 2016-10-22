@@ -43,13 +43,18 @@ Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'tpope/vim-surround'
-Plug $FZF_PATH | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 filetype plugin indent on
 
 syntax enable
+
+" Super OP undo
+set undofile
+set undolevels=1000
 
 " Set NeoVim true colors
 set termguicolors
@@ -114,7 +119,7 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
 " remove trailing white space at the end of lines
-autocmd BufWritePre * call TidyFile()
+" autocmd BufWritePre * call TidyFile()
 
 function TidyFile()
     %s/\s\+$//e
@@ -180,8 +185,8 @@ set tabstop=4
 " use spaces by default
 set expandtab
 
-" auto indent should use the 4 spaces by default
-set shiftwidth=4
+" auto indent should use the 2 spaces by default
+set shiftwidth=2
 
 " make tabs smart
 set smarttab
@@ -209,11 +214,13 @@ let g:user_emmet_leader_key='<C-E>'
 
 " indentation based on filetype
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
+autocmd Filetype xml setlocal ts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab

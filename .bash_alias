@@ -8,45 +8,16 @@ alias dup='docker-compose up'
 alias ddown='docker-compose down'
 alias dbuild='docker-compose build'
 alias h='cd ~'
-alias ls='ls -lah'
-alias ll='ls -lahF'
+alias ls='ls -lah --color'
+alias ll='ls -lahF --color'
 alias src='source ~/.bash_profile'
 alias ovim='/usr/local/bin/vim'
 alias vim='nvim'
-alias v='vim'
+alias v='nvim'
 alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
 alias vend='cd ~/Source'
-alias palias='v ~/.bash_alias'
-alias pprof='v ~/.bash_profile'
 alias tmn='tmux attach || tmux new -s Tomdizzle'
-
-function docker-clean {
-    if [ "$#" -ne 1 ]
-    then
-        while true; do
-            read -e -p "Are you sure you want to delete all untagged docker images? (cannot be undone) [yN]: " -i "n" yn
-            case $yn in
-                [Yy]* ) docker kill $(docker ps -a -q); docker rmi -f $(docker images | grep "^<none>" | awk '{print $3}'); break;;
-                [Nn]* ) break;;
-            esac
-        done
-    else
-
-        if [ "$1" == "all" ]
-        then
-            while true; do
-                read -e -p "Are you sure you want to delete ALL docker images? (cannot be undone) [yN]: " -i "n" yn
-                yn=${yn:-n}
-                case $yn in
-                    [Yy]* ) docker kill $(docker ps -a -q); docker rmi -f $(docker images -q); break;;
-                    [Nn]* ) break;;
-                esac
-            done
-        fi
-
-    fi
-}
 
 docker() {
     if [[ $1 == "buildx" ]]; then
