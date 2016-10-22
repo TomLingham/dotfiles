@@ -3,7 +3,7 @@
 ################
 
 source ~/.bash_alias
-source ~/.custom
+[[ -f ~/.custom ]] && source ~/.custom
 
 export PS1="\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;4m\]@\[$(tput sgr0)\]\[\033[38;5;2m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;5m\]\W\[$(tput sgr0)\]\[\033[38;5;3m\]\\$ \[$(tput sgr0)\]"
 export FZF_DEFAULT_COMMAND='ag --ignore compiled_lib --ignore node_modules --ignore .git --hidden -i -g ""'
@@ -14,11 +14,7 @@ export PATH=$PATH:$GOROOT/bin
 
 case $(hostname -s) in
   macbuddy)
-    export GOPATH=~/Source/go/
-    export GOROOT=~/Source/go/
-    export PATH=$PATH:/usr/local/opt/go/libexec/bin
-    export RUST_SRC_PATH=~/Source/rust/src
-    export FZF_PATH=/usr/local/opt/fzf
+    # empty because deprecated
     ;;
   *)
     export FZF_PATH=/home/s98430/.fzf/bin

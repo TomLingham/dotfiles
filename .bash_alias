@@ -17,16 +17,27 @@ alias v='nvim'
 alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
 alias vend='cd ~/Source'
+alias tmux='tmux -2'
 alias tmn='tmux attach || tmux new -s Tomdizzle'
 
 docker() {
   if [[ $1 == "buildx" ]]; then
     command docker build --build-arg http_proxy=${HTTP_PROXY} --build-arg https_proxy=${HTTPS_PROXY} --build-arg no_proxy=${NO_PROXY} "${@:2}"
   elif [[ $1 == "clean" ]]; then
-    docker rm --force $(docker ps -a -q)
-    docker rmi --force $(docker images -q)
+
+    read -p "Are you sure? This will delete all cached images and containers [y/n]: " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo Deleting Docker Images...
+      docker rmi --force $(docker images -q)
+
+      echo Deleting Docker Containers...
+      docker rm --force $(docker ps -a -q)
+
+      echo Done!
+    fi
   else
     command docker "$@"
   fi
-
 }
