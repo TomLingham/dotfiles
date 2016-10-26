@@ -15,8 +15,8 @@ endfunction<Paste>
 call plug#begin('~/.vim/plugged')
 
 "----$ Elixir
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir'
 "----$ Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
@@ -28,8 +28,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 "----$ Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 "----$ Toml
 Plug 'cespare/vim-toml'
 "----$ Git
@@ -45,6 +45,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Valloric/ListToggle'
 
 call plug#end()
 
@@ -85,14 +86,16 @@ if executable('ag')
 endif
 
 "------------------
+" Setup ListToggle
+"------------------
+let g:lt_height = 5
+
+"------------------
 " Setup Leader Key
 "------------------
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR><Esc>
-nmap <leader>e :wq!<CR>
 nmap <leader>; :tabedit $MYVIMRC<CR>
 nmap <leader>s :sp<CR>
 nmap <leader>v :vsp<CR>
@@ -102,6 +105,7 @@ nmap <leader>p :Explore<CR>
 " Setup Default Makers for Neomake
 "----------------------------------
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
 
 " Stop neomake running on :wq
