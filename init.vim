@@ -184,7 +184,7 @@ set splitbelow
 set splitright
 
 " tab = 4 spaces by default
-set tabstop=4
+set tabstop=2
 
 " use spaces by default
 set expandtab
@@ -217,8 +217,8 @@ nnoremap <F3> :set hlsearch!<CR>
 let g:user_emmet_leader_key='<C-E>'
 
 " indentation based on filetype
-autocmd Filetype html setlocal ts=4 sw=4 expandtab
-autocmd Filetype xml setlocal ts=4 sw=4 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype xml setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
