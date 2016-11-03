@@ -9,7 +9,7 @@ export PS1="\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;4m\]@\[$(tput sgr0)\]\
 export FZF_DEFAULT_COMMAND='ag --ignore compiled_lib --ignore node_modules --ignore .git --ignore _build --ignore deps --hidden -i -g ""'
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export LS_COLORS='di=0;31:ow=1;32:'
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=$PATH:$GOROOT/bin
 
