@@ -259,7 +259,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-T> :call <SID>SynStack()<CR>
+nmap <leader>9 :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
