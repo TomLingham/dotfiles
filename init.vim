@@ -5,10 +5,6 @@ set esckeys
 " Disable filetype before loading plugs
 filetype off
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction<Paste>
-
 "-----------------
 " Plug Packages
 "-----------------
@@ -22,7 +18,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'heavenshell/vim-jsdoc'
 "----$ HTML
 Plug 'othree/html5.vim'
@@ -41,7 +37,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mileszs/ack.vim'
 Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -78,6 +74,10 @@ command W w
 " Deoplete
 "----------
 let g:deoplete#enable_at_startup = 1
+
+" Use deoplete.
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'
 
 "----------
 " Setup Ag
@@ -137,6 +137,7 @@ autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
 autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
+autocmd BufNewFile,BufRead .tern-project set filetype=json
 
 "-----------------------
 " Airline Configuration
@@ -259,7 +260,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-T> :call <SID>SynStack()<CR>
+nmap <leader>9 :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
