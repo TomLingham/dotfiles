@@ -46,6 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/ListToggle'
+Plug 'fatih/vim-nginx'
 
 call plug#end()
 
@@ -135,6 +136,7 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
+autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
 
 "-----------------------
 " Airline Configuration

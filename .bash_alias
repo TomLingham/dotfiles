@@ -8,8 +8,7 @@ alias dup='docker-compose up'
 alias ddown='docker-compose down'
 alias dbuild='docker-compose build'
 alias h='cd ~'
-alias ls='ls -Glah --color --group-directories-first'
-alias ll='ls -GlahF'
+alias ll='ls -GlahF --color --group-directories-first'
 alias src='source ~/.bash_profile'
 alias ovim='/usr/local/bin/vim'
 alias vim='nvim'
@@ -24,7 +23,6 @@ docker() {
   if [[ $1 == "buildx" ]]; then
     command docker build --build-arg http_proxy=${http_proxy} --build-arg https_proxy=${http_proxy} --build-arg no_proxy=${no_proxy} "${@:2}"
   elif [[ $1 == "clean" ]]; then
-
     read -p "Are you sure? This will delete all cached images and containers [y/n]: " -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
@@ -37,6 +35,8 @@ docker() {
 
       echo Done!
     fi
+  elif [[ $1 == "sh" ]]; then
+    docker run -it $2 sh
   else
     command docker "$@"
   fi
