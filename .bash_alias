@@ -21,9 +21,8 @@ alias tmn='tmux attach || tmux new -s Tomdizzle'
 
 docker() {
   if [[ $1 == "buildx" ]]; then
-    command docker build --build-arg http_proxy=${HTTP_PROXY} --build-arg https_proxy=${HTTPS_PROXY} --build-arg no_proxy=${NO_PROXY} "${@:2}"
+    command docker build --build-arg http_proxy=${http_proxy} --build-arg https_proxy=${http_proxy} --build-arg no_proxy=${no_proxy} "${@:2}"
   elif [[ $1 == "clean" ]]; then
-
     read -p "Are you sure? This will delete all cached images and containers [y/n]: " -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
@@ -36,6 +35,8 @@ docker() {
 
       echo Done!
     fi
+  elif [[ $1 == "sh" ]]; then
+    docker run -it $2 sh
   else
     command docker "$@"
   fi

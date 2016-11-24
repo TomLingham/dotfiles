@@ -77,10 +77,12 @@ command W w
 "----------
 let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
+let g:deoplete#file#enable_buffer_path = 1
 
 " Use deoplete.
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'
+set completeopt-=preview
 
 " For Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -142,6 +144,7 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
+autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
 autocmd BufNewFile,BufRead .tern-project set filetype=json
 
 "-----------------------
