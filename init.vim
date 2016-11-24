@@ -23,6 +23,8 @@ Plug 'heavenshell/vim-jsdoc'
 "----$ HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
+"----$ Java
+Plug 'artur-shaik/vim-javacomplete2'
 "----$ Rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
@@ -74,10 +76,14 @@ command W w
 " Deoplete
 "----------
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
 " Use deoplete.
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'
+
+" For Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 "----------
 " Setup Ag
