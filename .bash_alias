@@ -1,32 +1,30 @@
 #!/bin/bash
 
 alias ..='cd ..'
+alias add-ppa-key='sudo apt-key adv --keyserver-options http-proxy=${http_proxy} --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
 alias c='clear'
 alias cd..='cd ..'
 alias code='cd ~/Code'
-alias dup='docker-compose up'
-alias ddown='docker-compose down'
 alias dbuild='docker-compose build'
+alias ddown='docker-compose down'
+alias dup='docker-compose up'
+alias fuck='sudo $(history -p \!\!)'
+alias gitaa='git add -A'
+alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
+alias gitc='git commit -m'
+alias gitpb="git push -u origin \$(gitb)"
+alias gits='git status'
 alias h='cd ~'
 alias ll='ls -GlahF --color --group-directories-first'
-alias src='source ~/.bash_profile'
 alias ovim='/usr/local/bin/vim'
-alias vim='nvim'
-alias v='nvim'
-alias fuck='sudo $(history -p \!\!)'
-alias serve='python -m SimpleHTTPServer'
-alias vend='cd ~/Source'
-alias tmux='tmux -u -2'
-alias tmn='tmux attach || tmux -u new -s Tomdizzle'
-alias add-ppa-key='sudo apt-key adv --keyserver-options http-proxy=${http_proxy} --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
-
-alias gits='git status'
-alias gitaa='git add -A'
-alias gitc='git commit -m'
-alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
-alias gitpb="git push -u origin \$(gitb)"
-
 alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
+alias serve='python -m SimpleHTTPServer'
+alias src='source ~/.bash_profile'
+alias tmn='tmux attach || tmux -u new -s Tomdizzle'
+alias tmux='tmux -u -2'
+alias v='nvim'
+alias vend='cd ~/Source'
+alias vim='nvim'
 
 docker() {
   if [[ $1 == "buildx" ]]; then
