@@ -27,7 +27,7 @@ Plug 'mattn/emmet-vim'
 Plug 'artur-shaik/vim-javacomplete2'
 "----$ Rust
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+Plug 'sebastianmarkow/deoplete-rust'
 "----$ Toml
 Plug 'cespare/vim-toml'
 "----$ Git
@@ -99,6 +99,11 @@ endif
 "------------------
 let g:lt_height = 5
 
+"-------
+" JsDoc
+"-------
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+
 "------------------
 " Setup Leader Key
 "------------------
@@ -109,6 +114,7 @@ nmap <leader>; :tabedit $MYVIMRC<CR>
 nmap <leader>s :sp<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>p :Explore<CR>
+nmap <leader>gf :e <cfile><cr>
 
 "----------------------------------
 " Setup Default Makers for Neomake
@@ -146,6 +152,13 @@ autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
 autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
 autocmd BufNewFile,BufRead .tern-project set filetype=json
+
+"------------
+" Rust Racer
+"------------
+let g:deoplete#sources#rust#racer_binary = '~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = '~/Source/rust/src'
+let g:deoplete#sources#rust#documentation_max_height = 20
 
 "-----------------------
 " Airline Configuration
@@ -241,6 +254,7 @@ autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 expandtab
 autocmd Filetype pug setlocal ts=2 sw=2 expandtab
+autocmd Filetype rust setlocal ts=2 sw=2 expandtab
 
 " change swap file Locations so we don't pollute the cwd
 set backupdir=~/.vim/backup//

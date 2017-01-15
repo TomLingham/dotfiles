@@ -20,6 +20,14 @@ alias tmux='tmux -u -2'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias add-ppa-key='sudo apt-key adv --keyserver-options http-proxy=${http_proxy} --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
 
+alias gits='git status'
+alias gitaa='git add -A'
+alias gitc='git commit -m'
+alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
+alias gitpb="git push -u origin \$(gitb)"
+
+alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
+
 docker() {
   if [[ $1 == "buildx" ]]; then
     command docker build \
