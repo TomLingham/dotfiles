@@ -16,12 +16,17 @@ alias v='nvim'
 alias fuck='sudo $(history -p \!\!)'
 alias serve='python -m SimpleHTTPServer'
 alias vend='cd ~/Source'
-alias tmux='tmux -2'
-alias tmn='tmux attach || tmux new -s Tomdizzle'
+alias tmux='tmux -u -2'
+alias tmn='tmux attach || tmux -u new -s Tomdizzle'
+alias add-ppa-key='sudo apt-key adv --keyserver-options http-proxy=${http_proxy} --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
 
 docker() {
   if [[ $1 == "buildx" ]]; then
-    command docker build --build-arg http_proxy=${http_proxy} --build-arg https_proxy=${http_proxy} --build-arg no_proxy=${no_proxy} "${@:2}"
+    command docker build \
+      --build-arg http_proxy=${http_proxy} \
+      --build-arg https_proxy=${http_proxy} \
+      --build-arg no_proxy=${no_proxy} \
+      "${@:2}"
   elif [[ $1 == "clean" ]]; then
     read -p "Are you sure? This will delete all cached images and containers [y/n]: " -n 1 -r
     echo    # (optional) move to a new line
