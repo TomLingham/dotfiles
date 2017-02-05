@@ -76,11 +76,10 @@ command W w
 " Deoplete
 "----------
 let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
 let g:deoplete#file#enable_buffer_path = 1
 
 " Use deoplete.
-let g:tern_request_timeout = 1
+let g:tern_request_timeout = 5
 let g:tern_show_signature_in_pum = '0'
 set completeopt-=preview
 
@@ -152,6 +151,7 @@ autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
 autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
 autocmd BufNewFile,BufRead .tern-project set filetype=json
+autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 
 "------------
 " Rust Racer
@@ -241,20 +241,19 @@ nnoremap <F3> :set hlsearch!<CR>
 let g:user_emmet_leader_key='<C-E>'
 
 " indentation based on filetype
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype xml setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
+autocmd Filetype groovy setlocal ts=4 sw=4 expandtab
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
-autocmd Filetype css setlocal ts=2 sw=2 expandtab
-autocmd Filetype scss setlocal ts=2 sw=2 expandtab
 autocmd Filetype pug setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype rust setlocal ts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sw=2 expandtab
+autocmd Filetype xml setlocal ts=2 sw=2 expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " change swap file Locations so we don't pollute the cwd
 set backupdir=~/.vim/backup//

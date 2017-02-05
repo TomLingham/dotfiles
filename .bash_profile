@@ -42,3 +42,7 @@ case $(hostname -s) in
     ;;
 esac
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/s98430/.sdkman"
+[[ -s "/home/s98430/.sdkman/bin/sdkman-init.sh" ]] && source "/home/s98430/.sdkman/bin/sdkman-init.sh"
