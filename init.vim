@@ -23,8 +23,6 @@ Plug 'heavenshell/vim-jsdoc'
 "----$ HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
-"----$ Java
-Plug 'artur-shaik/vim-javacomplete2'
 "----$ Rust
 Plug 'rust-lang/rust.vim'
 Plug 'sebastianmarkow/deoplete-rust'
@@ -33,18 +31,21 @@ Plug 'cespare/vim-toml'
 "----$ Git
 Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
-Plug 'TomLingham/vim-one'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+"----$ Python
+Plug 'zchee/deoplete-jedi'
 "----$ ...
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'fatih/vim-nginx'
 Plug 'jiangmiao/auto-pairs'
-Plug 'mileszs/ack.vim'
-Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Valloric/ListToggle'
-Plug 'fatih/vim-nginx'
+Plug 'mileszs/ack.vim'
+Plug 'neomake/neomake'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -56,16 +57,14 @@ syntax enable
 set undofile
 set undolevels=1000
 
-" Set NeoVim true colors
-set termguicolors
-
 "--------------------------
 " Set Color Scheme
 "--------------------------
 set background=dark
-let g:airline_theme='one'
-let g:one_allow_italics = 1
-colorscheme one
+let g:airline_theme='gruvbox'
+let g:gruvbox_italic=1
+set fillchars+=vert:\ 
+colorscheme gruvbox
 
 "----------
 " Commands
@@ -83,8 +82,11 @@ let g:tern_request_timeout = 5
 let g:tern_show_signature_in_pum = '0'
 set completeopt-=preview
 
-" For Java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" Some python sugar
+call deoplete#enable()
+
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 
 "----------
 " Setup Ag
@@ -113,7 +115,9 @@ nmap <leader>; :tabedit $MYVIMRC<CR>
 nmap <leader>s :sp<CR>
 nmap <leader>v :vsp<CR>
 nmap <leader>p :Explore<CR>
-nmap <leader>gf :e <cfile><cr>
+nmap <leader>gf :e <cfile><CR>
+nmap <leader>D :JsDoc<CR>
+nmap <leader>' :StripWhitespace<CR>
 
 "----------------------------------
 " Setup Default Makers for Neomake
@@ -136,18 +140,12 @@ autocmd BufWritePost,BufEnter * Neomake
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-" remove trailing white space at the end of lines
-" autocmd BufWritePre * call TidyFile()
-
-function TidyFile()
-    %s/\s\+$//e
-endfunction
-
-" Set .babelrc file to json format on open and new
+" Set filetypes for some files that aren't magically recognized
 autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile
 autocmd BufNewFile,BufRead hosts set filetype=dosini
+autocmd BufNewFile,BufRead supervisord.conf set filetype=dosini
 autocmd BufNewFile,BufRead .tmux.conf set filetype=sh
 autocmd BufNewFile,BufRead */nginx/*/default set filetype=nginx
 autocmd BufNewFile,BufRead .tern-project set filetype=json
@@ -169,8 +167,6 @@ set noru
 set statusline+=%F
 
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 
 "--------
 " Tweaks
@@ -192,13 +188,13 @@ set pastetoggle=<F10>
 let g:netrw_list_hide= '.*\.DS_Store$'
 
 " store some history for the future generations
-let history=100
+let history=500
 
 " Disable linewrap cause its poo
 set nowrap
 
 " Stop AutoPairs closing over line
-let g:AutoPairsMultilineClose = 0
+let g:AutoPairsMultilineClose=0
 
 " when doing a search, show where it matches as it is typed
 set incsearch
@@ -206,18 +202,6 @@ set incsearch
 " splitting rules
 set splitbelow
 set splitright
-
-" tab = 4 spaces by default
-set tabstop=2
-
-" use spaces by default
-set expandtab
-
-" auto indent should use the 2 spaces by default
-set shiftwidth=2
-
-" make tabs smart
-set smarttab
 
 " disable hackerz
 set modelines=0
@@ -239,21 +223,21 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " change the leader for emmet
 let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\    'extends' : 'jsx',
+\    'attribute_name': {'class': 'styleName', 'for': 'htmlFor'}
+\  },
+\}
+
+" indentation defaults
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " indentation based on filetype
-autocmd Filetype css setlocal ts=2 sw=2 expandtab
-autocmd Filetype elixir setlocal ts=2 sw=2 expandtab
 autocmd Filetype groovy setlocal ts=4 sw=4 expandtab
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
-autocmd Filetype json setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
-autocmd Filetype pug setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-autocmd Filetype rust setlocal ts=2 sw=2 expandtab
-autocmd Filetype scss setlocal ts=2 sw=2 expandtab
-autocmd Filetype xml setlocal ts=2 sw=2 expandtab
-autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " change swap file Locations so we don't pollute the cwd
 set backupdir=~/.vim/backup//
@@ -273,12 +257,6 @@ let g:jsx_ext_required = 0
 " Prevent vim from using the awesome save features because it screws with
 " watchers
 set backupcopy=yes
-
-" move around splits like a boss
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " Show syntax highlighting groups for word under cursor
 nmap <leader>9 :call <SID>SynStack()<CR>

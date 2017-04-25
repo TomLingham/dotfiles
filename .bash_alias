@@ -1,31 +1,30 @@
 #!/bin/bash
 
 alias ..='cd ..'
-alias add-ppa-key='sudo apt-key adv --keyserver-options http-proxy=${http_proxy} --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
 alias c='clear'
 alias cd..='cd ..'
 alias code='cd ~/Code'
 alias dbuild='docker-compose build'
 alias ddown='docker-compose down'
-alias dup='docker-compose up'
+alias dup='docker-compose up --remove-orphans'
 alias fuck='sudo $(history -p \!\!)'
 alias gita='git add'
 alias gitaa='git add -A'
 alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
 alias gitc='git commit -m'
-alias gitpb="git push -u origin \$(gitb)"
-alias gits='git status'
-alias gitd='git diff'
-alias gitp='git push'
 alias gitcb='git checkout -b'
-alias h='cd ~'
+alias gitd='git diff'
+alias gitl='git log'
+alias gitp='git push'
+alias gitpb='git push -u origin $(gitb)'
+alias gits='git status -s'
 alias ll='ls -GlahF --color --group-directories-first'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
 alias serve='python -m SimpleHTTPServer'
 alias src='source ~/.bash_profile'
-alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmux='tmux -u -2'
+alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias v='nvim'
 alias vend='cd ~/Source'
 alias vim='nvim'
@@ -37,19 +36,6 @@ docker() {
       --build-arg https_proxy=${http_proxy} \
       --build-arg no_proxy=${no_proxy} \
       "${@:2}"
-  elif [[ $1 == "clean" ]]; then
-    read -p "Are you sure? This will delete all cached images and containers [y/n]: " -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-      echo Deleting Docker Images...
-      docker rmi --force $(docker images -q)
-
-      echo Deleting Docker Containers...
-      docker rm --force $(docker ps -a -q)
-
-      echo Done!
-    fi
   elif [[ $1 == "sh" ]]; then
     docker run -it $2 sh
   else
