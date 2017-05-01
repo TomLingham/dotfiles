@@ -1,0 +1,1 @@
+export VIM_COLORSCHEME=gotham

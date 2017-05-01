@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias ..='cd ..'
+alias ag="ag --path-to-ignore ~/.agignore"
 alias c='clear'
 alias cd..='cd ..'
 alias code='cd ~/Code'
@@ -18,18 +19,19 @@ alias gitl='git log'
 alias gitp='git push'
 alias gitpb='git push -u origin $(gitb)'
 alias gits='git status -s'
-alias ls='gls'
 alias ll='ls -GlahF --color --group-directories-first'
+alias ls='gls'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
 alias serve='python -m SimpleHTTPServer'
 alias src='source ~/.zshrc'
-alias tmux='tmux -u -2'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
+alias tmux='tmux -u -2'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 
+# Some docker magic
 docker() {
   if [[ $1 == "buildx" ]]; then
     command docker build \

@@ -2,16 +2,11 @@
 # General Settings
 #============================================
 
-#============================================
-# Env Vars
-#============================================
-
 export EDITOR="$VISUAL"
-export FZF_DEFAULT_COMMAND="ag ${ag_ignore_string} --hidden -i -g \"\""
+export FZF_DEFAULT_COMMAND='ag --hidden -i -g ""'
 export FZF_PATH="$HOME/.fzf/bin"
 export LC_ALL=C
 export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
-export PATH=$PATH:$GOROOT/bin
 export VISUAL=nvim
 export SOURCE_DIR=$HOME/Source
 
@@ -35,3 +30,12 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR//bin/sdkman-init.sh"
 
+# FZF
+[ -s "$HOME/.fzf.zsh" ] && source ~/.fzf.zsh
+
+#============================================
+# Theme
+#============================================
+
+#source $HOME/.dotfiles/themes/gruvbox.sh
+source $HOME/.dotfiles/themes/gotham.sh
