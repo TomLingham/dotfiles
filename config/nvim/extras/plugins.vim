@@ -30,7 +30,10 @@ Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-gotham'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "----$ Python
 Plug 'zchee/deoplete-jedi'

@@ -14,6 +14,7 @@ brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install zsh
+brew install zplug
 
 # Casks
 brew cask install google-chrome

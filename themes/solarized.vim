@@ -1,0 +1,4 @@
+set background=dark
+colorscheme solarized
+let g:airline_theme='solarized'
+
