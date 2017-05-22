@@ -3,7 +3,7 @@
 #============================================
 
 export EDITOR="$VISUAL"
-export FZF_DEFAULT_COMMAND='ag --hidden -i -g --path-to-ignore ~/.agignore ""'
+export FZF_DEFAULT_COMMAND='ag --path-to-ignore $HOME/.agignore --hidden -i -g ""'
 export FZF_PATH="$HOME/.fzf/bin"
 export LC_ALL="en_US.UTF-8"
 export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
@@ -21,6 +21,12 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+
+# compinit
+zstyle :compinstall filename "$HOME/.zshrc"
+autoload -Uz compinit
+compinit
+
 
 #============================================
 # ZPlug
@@ -48,7 +54,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load SDK Man
 export SDKMAN_DIR="$HOME/.sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR//bin/sdkman-init.sh"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # FZF
 [ -s "$HOME/.fzf.zsh" ] && source ~/.fzf.zsh

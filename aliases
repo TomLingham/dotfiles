@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#============================================
+# General Aliases
+#============================================
 alias ..='cd ..'
 alias ag="ag --path-to-ignore ~/.agignore"
 alias c='clear'
@@ -9,17 +12,6 @@ alias dbuild='docker-compose build'
 alias ddown='docker-compose down'
 alias dup='docker-compose up --remove-orphans'
 alias fuck='sudo $(history -p \!\!)'
-alias gita='git add'
-alias gitaa='git add -A'
-alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
-alias gitc='git commit -m'
-alias gitca='git commit --amend'
-alias gitcb='git checkout -b'
-alias gitd='git diff'
-alias gitl='git log --oneline'
-alias gitp='git push'
-alias gitpb='git push -u origin $(gitb)'
-alias gits='git status -s'
 alias ll='ls -GlahF --color --group-directories-first'
 alias ls='gls'
 alias ovim='/usr/local/bin/vim'
@@ -33,7 +25,35 @@ alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 
 
-# Some docker magic
+#============================================
+# Git Aliases
+#============================================
+alias gita='git add'
+alias gitaa='git add -A'
+alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
+alias gitc='git commit -m'
+alias gitca='git commit --amend'
+alias gitcb='git checkout -b'
+alias gitd='git diff'
+alias gitl='git log --oneline'
+alias gitp='git push'
+alias gitpb='git push -u origin $(gitb)'
+alias gits='git status -s'
+
+
+#============================================
+# Todoist Aliases
+#============================================
+alias tda='todoist add'
+alias tdai='todoist add -P 178908924'
+alias tdl='todoist list'
+alias tds='todoist sync'
+
+
+#============================================
+# CLI Augmentations
+#============================================
+
 docker() {
   if [[ $1 == "buildx" ]]; then
     command docker build \
@@ -48,11 +68,6 @@ docker() {
   fi
 }
 
-# Check if a program exists
-program_exists() {
-  command -v "$1" >/dev/null 2>&1 ;
-}
-
 git() {
   if [[ $1 == "clonem" ]]; then
     command git clone \
@@ -61,3 +76,13 @@ git() {
     command git "$@"
   fi
 }
+
+#============================================
+# Utility Methods
+#============================================
+
+# Check if a program exists
+program_exists() {
+  command -v "$1" >/dev/null 2>&1 ;
+}
+
