@@ -49,6 +49,7 @@ Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
 
 
 call plug#end()

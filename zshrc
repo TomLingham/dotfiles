@@ -1,9 +1,9 @@
 #============================================
-# General Settings
+# ENV Settings
 #============================================
 
 export EDITOR="$VISUAL"
-export FZF_DEFAULT_COMMAND='ag --hidden -i -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden -i -g --path-to-ignore ~/.agignore ""'
 export FZF_PATH="$HOME/.fzf/bin"
 export LC_ALL="en_US.UTF-8"
 export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
@@ -11,21 +11,24 @@ export VISUAL=nvim
 export SOURCE_DIR=$HOME/Source
 export ZPLUG_HOME=/usr/local/opt/zplug
 
-
-#============================================
-# Antibody Plugin Manager
-#============================================
-
-source $ZPLUG_HOME/init.zsh
-
-zplug load
+source <(go env)
 
 
 #============================================
-# Autocompletions
+# Vi in CLI Mode
+#============================================
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+#============================================
+# ZPlug
 #============================================
 
-source <(npm completion)
+# source $ZPLUG_HOME/init.zsh
+
+# zplug load
 
 
 #============================================
@@ -49,6 +52,35 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # FZF
 [ -s "$HOME/.fzf.zsh" ] && source ~/.fzf.zsh
+
+# Custom Scripts
+[ -s "$HOME/.custom" ] && source ~/.custom
+
+
+#============================================
+# Path
+#============================================
+
+# Cargo
+path+=("$HOME/.cargo/bin")
+
+# Golang
+path+=("$GOPATH/bin")
+
+
+#============================================
+# FPath
+#============================================
+
+fpath=( ~/.zfunc "${fpath[@]}" )
+fpath=( /usr/local/share/zsh-completions $fpath )
+
+
+#============================================
+# Autocompletions
+#============================================
+
+source <(npm completion)
 
 
 #============================================

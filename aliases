@@ -13,9 +13,10 @@ alias gita='git add'
 alias gitaa='git add -A'
 alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
 alias gitc='git commit -m'
+alias gitca='git commit --amend'
 alias gitcb='git checkout -b'
 alias gitd='git diff'
-alias gitl='git log'
+alias gitl='git log --oneline'
 alias gitp='git push'
 alias gitpb='git push -u origin $(gitb)'
 alias gits='git status -s'
@@ -31,6 +32,7 @@ alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 
+
 # Some docker magic
 docker() {
   if [[ $1 == "buildx" ]]; then
@@ -43,5 +45,19 @@ docker() {
     docker run -it $2 sh
   else
     command docker "$@"
+  fi
+}
+
+# Check if a program exists
+program_exists() {
+  command -v "$1" >/dev/null 2>&1 ;
+}
+
+git() {
+  if [[ $1 == "clonem" ]]; then
+    command git clone \
+      "${MAC_GIT_SSH}$2.git"
+  else
+    command git "$@"
   fi
 }

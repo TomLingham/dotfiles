@@ -1,18 +1,48 @@
 #!/bin/zsh
 
+#=============================================
+# Dotfiles
+#=============================================
 dots=(
-  .agignore
-  .aliases
-  .tmux.conf
-  .zshrc
+  agignore
+  aliases
+  tmux.conf
+  zshrc
+  gitignore
 );
 
 for i in "${dots[@]}"; do
-  ln -s ".dotfiles/${i}" "../${i}"
+  ln -s "$HOME/.dotfiles/${i}" "$HOME/.${i}"
 done
 
-ln -s "$HOME/.dotfiles/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
-ln -s "$HOME/.dotfiles/config/nvim/extras" "$HOME/.config/nvim/extras"
+source $HOME/.zshrc
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#=============================================
+# Neovim Configuration
+#=============================================
+ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
+ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
+
+
+#=============================================
+# Install Vim Plug
+#=============================================
+curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+#=============================================
+# ZSH Setup
+#=============================================
+
+mkdir $HOME/.zfunc
+
+
+#=============================================
+# Run Installer Scripts
+#=============================================
+
+# Brew
+sh ./scripts/brew.sh
+sh ./scripts/rust.sh
+sh ./scripts/source.sh

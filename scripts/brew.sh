@@ -1,3 +1,9 @@
+source $HOME/.aliases
+
+if ! program_exists brew ; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # Taps
 brew tap neovim/neovim
 

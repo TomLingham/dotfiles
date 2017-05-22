@@ -11,8 +11,8 @@ filetype plugin indent on
 " This is not vi...
 set nocompatible
 
-" Disable delay on key input
-set esckeys
+" Enable Mouse Scrolling
+set mouse=a
 
 " Enable syntax highlighting
 syntax enable
@@ -103,6 +103,7 @@ autocmd BufNewFile,BufRead hosts set filetype=dosini
 autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 autocmd BufNewFile,BufRead supervisord.conf set filetype=dosini
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead *.md setlocal textwidth=80
 
 
 "============================================================
@@ -122,6 +123,7 @@ nmap <leader>gf :e <cfile><CR>
 nmap <leader>' :StripWhitespace<CR>
 nmap <silent> <leader><leader> :nohls<CR>
 nmap <leader>9 :call <SID>SynStack()<CR>
+nmap <leader>d :JsDoc<CR>
 
 
 "============================================================
