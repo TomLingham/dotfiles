@@ -20,6 +20,8 @@ alias serve='python -m SimpleHTTPServer'
 alias src='source ~/.zshrc'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmux='tmux -u -2'
+alias tml='tmux new-session -s Tomdizzle1'
+alias tmr='tmux new-session -t Tomdizzle1 -s Tomdizzel2'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
@@ -75,6 +77,10 @@ git() {
   else
     command git "$@"
   fi
+}
+
+tdaa() {
+  tda "$*"
 }
 
 #============================================
