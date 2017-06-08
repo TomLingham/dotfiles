@@ -21,7 +21,7 @@ alias src='source ~/.zshrc'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmux='tmux -u -2'
 alias tml='tmux new-session -s Tomdizzle1'
-alias tmr='tmux new-session -t Tomdizzle1 -s Tomdizzel2'
+alias tmr='tmux new-session -t Tomdizzle1 -s Tomdizzle2'
 alias toml-script='toml_script'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
@@ -96,7 +96,7 @@ program_exists() {
   command -v "$1" >/dev/null 2>&1 ;
 }
 
-# Check if a program exists
+# Run a node script in my scripts folder
 toml_script() {
   command node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
 }
