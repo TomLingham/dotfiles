@@ -76,7 +76,7 @@ git() {
   if [[ $1 == "clonem" ]]; then
     command git clone \
       "${MAC_GIT_SSH}$2.git"
-  elif [[ $1 == "conf" ]]; then
+  elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U
   else
     command git "$@"
