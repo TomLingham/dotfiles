@@ -1,20 +1,20 @@
 const fs = require('fs')
 
-const ticketRegex = new RegExp('(CID-[1-9]+)', 'i');
+const ticketRegex = new RegExp('(CID-[1-9]+)', 'i')
 
 const commitMsgPath = `${pwd}/${args[0]}`
-const branchName = args[2];
+const branchName = args[2]
 const prevCommitMsg = fs.readFileSync(commitMsgPath).toString()
 
 const getTicketId = (str) => str
   .match(ticketRegex)[1]
-  .toUpperCase();
+  .toUpperCase()
 
 
 if (!ticketRegex.test(branchName)) {
   // Exit silently as there is no ticket in our branch name
   // so I am probably just hacking
-  process.exit(0);
+  process.exit(0)
 }
 
 
