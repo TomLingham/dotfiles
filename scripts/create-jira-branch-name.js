@@ -1,4 +1,5 @@
 const jiraConnect = require('./jira-connect')
+const sanitizeTicket = require('./sanitize-ticket-id')
 
 const typeMap = {
   Bug: 'fix',
@@ -15,7 +16,7 @@ module.exports = async (issueId) => {
 
 
 if (require.main === module) {
-  module.exports(args[0])
+  module.exports(sanitizeTicket(args[0]))
     .then(console.log)
     .catch(x => (console.error(x), process.exit(1)))
 }

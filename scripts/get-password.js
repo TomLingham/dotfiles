@@ -6,5 +6,5 @@ module.exports = () => keytar
 if (require.main === module) {
   module.exports()
     .then(console.log)
-    .catch(console.error)
+    .catch(x => (console.error(x), process.exit(1)))
 }

@@ -1,5 +1,5 @@
 const jiraConnect = require('./jira-connect')
-
+const sanatizeTicket = require('./sanitize-ticket-id')
 
 module.exports = async (issueId, transitionId) => {
   const jira = await jiraConnect()
@@ -8,12 +8,11 @@ module.exports = async (issueId, transitionId) => {
   return transitions.find(x => x.id == transitionId)
 }
 
-
 if (require.main === module) {
   if (args.length !== 2)
     (console.error('Incorrect arguments'), process.exit(1))
 
-  module.exports(args[0], args[1])
+  module.exports(sanatizeTicket(args[0]), args[1])
     .then(x => x ? `Transitioning ${args[0]} to ${x.name} was successful` : 'Failed transition')
     .then(console.log)
     .catch(x => (console.error(x), process.exit(1)))
