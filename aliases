@@ -76,6 +76,9 @@ git() {
   if [[ $1 == "clonem" ]]; then
     command git clone \
       "${MAC_GIT_SSH}$2.git"
+  elif [[ $1 == "checkout-ticket" ]]; then
+    git checkout -b `toml-script create-jira-branch-name $2` && \
+    toml-script transition-ticket $2 31
   elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U
   else
@@ -98,6 +101,6 @@ program_exists() {
 
 # Run a node script in my scripts folder
 toml_script() {
-  command node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
+  node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
 }
 
