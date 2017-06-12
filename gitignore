@@ -3,3 +3,4 @@
 .tern-port
 .tern-project
 node_modules
+test/.multistagger
