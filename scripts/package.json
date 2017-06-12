@@ -1,0 +1,16 @@
+{
+  "name": "toml-scripts",
+  "version": "1.0.0",
+  "description": "My scripts for wreacking havoc upon the civilians of toml land",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^1.0.0",
+    "jira-client": "git+https://github.com/TomLingham/node-jira-client.git#compiled",
+    "keytar": "^4.0.3",
+    "lodash": "^4.17.4",
+    "prompt": "^1.0.0",
+    "request": "^2.81.0"
+  }
+}

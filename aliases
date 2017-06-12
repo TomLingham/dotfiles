@@ -21,6 +21,9 @@ alias serve='python -m SimpleHTTPServer'
 alias src='source ~/.zshrc'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmux='tmux -u -2'
+alias tml='tmux new-session -s Tomdizzle1'
+alias tmr='tmux new-session -t Tomdizzle1 -s Tomdizzle2'
+alias toml-script='toml_script'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
@@ -39,6 +42,7 @@ alias gitd='git diff'
 alias gitl='git log --oneline'
 alias gitp='git push'
 alias gitpb='git push -u origin $(gitb)'
+alias gitpl='git pull --rebase'
 alias gits='git status -s'
 
 
@@ -73,9 +77,18 @@ git() {
   if [[ $1 == "clonem" ]]; then
     command git clone \
       "${MAC_GIT_SSH}$2.git"
+  elif [[ $1 == "checkout-ticket" ]]; then
+    git checkout -b `toml-script create-jira-branch-name $2` && \
+    toml-script transition-ticket $2 31
+  elif [[ $1 == "show-conflicts" ]]; then
+    command git diff --name-only --diff-filter=U
   else
     command git "$@"
   fi
+}
+
+tdaa() {
+  tda "$*"
 }
 
 #============================================
@@ -85,5 +98,10 @@ git() {
 # Check if a program exists
 program_exists() {
   command -v "$1" >/dev/null 2>&1 ;
+}
+
+# Run a node script in my scripts folder
+toml_script() {
+  node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
 }
 
