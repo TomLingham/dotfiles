@@ -13,6 +13,9 @@ Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'heavenshell/vim-jsdoc'
 
+"----& SCSS
+Plug 'cakebaker/scss-syntax.vim'
+
 "----$ HTML
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'

@@ -73,6 +73,8 @@ path+=("$HOME/.cargo/bin")
 # Golang
 path+=("$GOPATH/bin")
 
+# Python
+path+=("$HOME/Library/Python/3.6/bin")
 
 #============================================
 # FPath

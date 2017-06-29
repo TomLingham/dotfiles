@@ -104,6 +104,7 @@ autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
 autocmd BufNewFile,BufRead supervisord.conf set filetype=dosini
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80
+autocmd BufNewFile,BufRead *.vue set filetype=html
 
 
 "============================================================
