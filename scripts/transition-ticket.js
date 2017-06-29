@@ -3,8 +3,23 @@ const sanatizeTicket = require('./sanitize-ticket-id')
 
 module.exports = async (issueId, transitionId) => {
   const jira = await jiraConnect()
-  const { transitions } = await jira.listTransitions(issueId)
-  await jira.transitionIssue(issueId, { transition: { id: transitionId } })
+  const user = await jira.getCurrentUser();
+
+  const [{ transitions }, ] = await Promise.all([
+    jira.listTransitions(issueId),
+    jira.updateIssue(issueId, {
+      fields: { assignee: user },
+      update: {
+        comment: [{
+          add: { body: 'Moving to in progress! (I am a bot)' },
+        }]
+      },
+    }),
+    jira.transitionIssue(issueId, {
+      transition: { id: transitionId },
+    }),
+  ]);
+
   return transitions.find(x => x.id == transitionId)
 }
 
