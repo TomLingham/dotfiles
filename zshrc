@@ -10,6 +10,7 @@ export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
 export VISUAL=nvim
 export SOURCE_DIR=$HOME/Source
 export ZPLUG_HOME=/usr/local/opt/zplug
+export RUST_SRC_PATH=$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/
 
 source <(go env)
 
@@ -75,6 +76,9 @@ path+=("$GOPATH/bin")
 
 # Python
 path+=("$HOME/Library/Python/3.6/bin")
+
+# Random Bins
+path+=("$HOME/.somebin")
 
 #============================================
 # FPath

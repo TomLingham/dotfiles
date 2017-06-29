@@ -122,7 +122,7 @@ let g:fzf_layout={ 'down': '~26%' }
 " Rust Racer
 "============================================================
 let g:deoplete#sources#rust#racer_binary=$HOME.'/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path=$SOURCE_DIR.'/rust/src'
+let g:deoplete#sources#rust#rust_source_path=$RUST_SRC_PATH
 let g:deoplete#sources#rust#documentation_max_height=20
 
 
