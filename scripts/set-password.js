@@ -16,10 +16,9 @@ const schema = {
 prompt.start()
 
 prompt.get(schema, function (err, { username, password }) {
-  console.log(err, username, password);
-
   keytar.setPassword(passid, username, password)
-    .then(console.log)
+    .then(() => console.log('Password set successfully :)'))
+    .catch(console.error)
 })
 
 

@@ -105,7 +105,20 @@ source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 # Theme
 #============================================
 
+# Dehaults
+export TMUX_COLOR_BG='#333333'
+export TMUX_COLOR_FG='#aaaaaa'
+export TMUX_COLOR_ACCENT_BG='#bbbbbb'
+export TMUX_COLOR_ACCENT_FG='#444444'
+export TMUX_COLOR_ACCENT_IDLE_BG='#888888'
+export TMUX_COLOR_ACCENT_IDLE_FG='#222222'
+export TMUX_COLOR_HIGHLIGHT_BG='#eeeeee'
+export TMUX_COLOR_HIGHLIGHT_FG='#888888'
+export TMUX_COLOR_HIGHLIGHT_IDLE_BG='#bbbbbb'
+export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
+
 #source $HOME/.dotfiles/themes/gruvbox.sh
-source $HOME/.dotfiles/themes/gotham.sh
+#source $HOME/.dotfiles/themes/gotham.sh
+source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh

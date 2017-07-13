@@ -5,9 +5,6 @@
 " Neovim support true colors
 set termguicolors
 
-" Filetype setting stuff that I don't really understand
-filetype plugin indent on
-
 " This is not vi...
 set nocompatible
 
@@ -22,9 +19,9 @@ set undofile
 set undolevels=1000
 
 " Change swap file Locations so we don't pollute the cwd
+set undodir=~/.vim/undo//
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
 
 " Allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start

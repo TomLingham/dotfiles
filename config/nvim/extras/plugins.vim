@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-
 "----$ Elixir
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -33,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-gotham'
+Plug 'TomLingham/dracula.vim'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
