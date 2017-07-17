@@ -11,7 +11,7 @@ module.exports = async (issueId, transitionId) => {
       fields: { assignee: user },
       update: {
         comment: [{
-          add: { body: 'Moving to in progress! (I am a bot)' },
+          add: { body: 'Moving to in progress! I am a bot. Beep boop beep!' },
         }]
       },
     }),
