@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #============================================
-# General Aliases
+# General
 #============================================
 alias ..='cd ..'
 alias ag="ag --path-to-ignore ~/.agignore"
@@ -30,7 +30,13 @@ alias vim='nvim'
 
 
 #============================================
-# Git Aliases
+# AWS
+#============================================
+alias aws-docker-login='$(aws ecr get-login --no-include-email --region ap-southeast-2)'
+
+
+#============================================
+# Git
 #============================================
 alias gita='git add'
 alias gitaa='git add -A'
@@ -47,7 +53,7 @@ alias gits='git status -s'
 
 
 #============================================
-# Todoist Aliases
+# Todoist
 #============================================
 alias tda='todoist add'
 alias tdai='todoist add -P 178908924'
@@ -101,6 +107,7 @@ program_exists() {
 }
 
 # Run a node script in my scripts folder
+# fpath=( $HOME/.dotfiles/completions fpath )
 toml_script() {
   node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
 }

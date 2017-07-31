@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+
 "----$ Elixir
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -11,6 +12,10 @@ Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'heavenshell/vim-jsdoc'
+
+"----& FlowJS
+Plug 'flowtype/vim-flow'
+Plug 'wokalski/autocomplete-flow'
 
 "----& SCSS
 Plug 'cakebaker/scss-syntax.vim'
@@ -48,7 +53,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
@@ -62,7 +67,8 @@ call plug#end()
 " Visual Tweaks
 "============================================================
 
-" Remove pipe character between window splits
+" Remove pipe character between window splits. The whitespace
+" character after the \ is required!
 set fillchars+=vert:\ 
 
 " Style JsDocs
@@ -73,6 +79,9 @@ let javascript_enable_domhtmlcss=1
 
 " JSX syntax highlighting and indentation for JS files
 let g:jsx_ext_required=0
+
+" Enable flow by default
+let g:javascript_plugin_flow = 1
 
 
 "============================================================
@@ -86,17 +95,11 @@ set completeopt-=preview
 
 
 "============================================================
-" NeoMake
+" Ale
 "============================================================
-let g:neomake_javascript_enabled_makers=['eslint']
-let g:neomake_jsx_enabled_makers=['eslint']
-let g:neomake_javascript_eslint_exe=system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
-
-" Stop neomake running on quit
-autocmd! QuitPre * let g:neomake_verbose=0
-
-" Run neomake on file save
-autocmd BufWritePost,BufEnter * Neomake
+let g:ale_sign_error = ''
+let g:ale_sign_warning = '――'
+let g:ale_echo_msg_format = '%linter% says: "%s"'
 
 
 "============================================================
