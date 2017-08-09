@@ -122,6 +122,7 @@ nmap <leader>' :StripWhitespace<CR>
 nmap <silent> <leader><leader> :nohls<CR>
 nmap <leader>9 :call <SID>SynStack()<CR>
 nmap <leader>d :JsDoc<CR>
+nmap <leader>q :TernDef<CR>
 
 
 "============================================================

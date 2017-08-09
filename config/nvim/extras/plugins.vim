@@ -11,6 +11,7 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'ternjs/tern_for_vim'
 Plug 'heavenshell/vim-jsdoc'
 
 "----& FlowJS
@@ -91,6 +92,16 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:tern_request_timeout = 2
 let g:tern_show_signature_in_pum = '0'
+let g:tern#filetypes = [
+\   'jsx',
+\   'javascript.jsx',
+\   'javascript',
+\ ]
+
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
 set completeopt-=preview
 
 
