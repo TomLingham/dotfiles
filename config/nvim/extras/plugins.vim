@@ -10,8 +10,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim'
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+"Plug 'ternjs/tern_for_vim'
 Plug 'heavenshell/vim-jsdoc'
 
 "----& FlowJS
@@ -46,6 +46,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 "----$ Python
 Plug 'zchee/deoplete-jedi'
+
+"----$ Markdown
+Plug 'plasticboy/vim-markdown'
 
 "----$ ...
 Plug 'christoomey/vim-tmux-navigator'
@@ -84,6 +87,10 @@ let g:jsx_ext_required=0
 " Enable flow by default
 let g:javascript_plugin_flow = 1
 
+" Disable annoying markdown folding
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+
 
 "============================================================
 " Deoplete
@@ -110,8 +117,31 @@ set completeopt-=preview
 "============================================================
 let g:ale_sign_error = ''
 let g:ale_sign_warning = '――'
-let g:ale_echo_msg_format = '%linter% says: "%s"'
 
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+set statusline=%{LinterStatus()}
 
 "============================================================
 " Emmet
@@ -124,8 +154,26 @@ let g:user_emmet_settings={
 \  },
 \}
 
-"
+
 "============================================================
+" Node
+"============================================================
+let node_modules = finddir('node_modules', '.,')
+
+if node_modules != ''
+  let node_bin = getcwd() . '/' . node_modules . '/.bin/'
+else
+  let node_bin = system('npm bin -g')
+endif
+
+"==========================================================o=
+" Node - Flow
+"============================================================
+let g:flow#enable = 0
+let g:flow#flowpath = node_bin . 'flow'
+
+
+"==========================================================o=
 " FZF
 "============================================================
 nnoremap <C-p> :FZF<CR>

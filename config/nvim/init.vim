@@ -38,6 +38,9 @@ set pastetoggle=<F10>
 " Hide dotfiles and more in netrw
 let g:netrw_list_hide='.*\.DS_Store$'
 
+" NetRw leaves buffers open which I personall find very annoying
+autocmd FileType netrw setl bufhidden=delete
+
 " Command line history for vim commands
 set history=200
 
