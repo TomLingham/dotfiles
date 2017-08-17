@@ -2,5 +2,6 @@
 .idea
 .tern-port
 .tern-project
+.vscode
 node_modules
 test/.multistagger

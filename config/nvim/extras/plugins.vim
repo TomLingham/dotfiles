@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+"----$ Autocomplate
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "----$ Elixir
 Plug 'slashmili/alchemist.vim'
@@ -10,15 +12,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
+Plug 'heavenshell/vim-jsdoc'
 "Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "Plug 'ternjs/tern_for_vim'
-Plug 'heavenshell/vim-jsdoc'
 
-"----& FlowJS
+"----$ FlowJS
 Plug 'flowtype/vim-flow'
 Plug 'wokalski/autocomplete-flow'
 
-"----& SCSS
+"----$ SCSS
 Plug 'cakebaker/scss-syntax.vim'
 
 "----$ HTML
@@ -59,7 +61,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
 
@@ -124,9 +125,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 0
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -158,7 +159,7 @@ let g:user_emmet_settings={
 "============================================================
 " Node
 "============================================================
-let node_modules = finddir('node_modules', '.,')
+let node_modules = finddir('node_modules', 'app;')
 
 if node_modules != ''
   let node_bin = getcwd() . '/' . node_modules . '/.bin/'

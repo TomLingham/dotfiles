@@ -85,8 +85,8 @@ autocmd Filetype php setlocal ts=4 sw=4 expandtab
 set backupcopy=yes
 
 " Change Ack to use Silver Searcher (Ag)
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.agignore'
+if executable('rg')
+  let g:ackprg = $ACK_COMMAND
 endif
 
 " highlight and unhighlight the current line when in insert mode
@@ -108,6 +108,12 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 
 
 "============================================================
+" Macros
+"============================================================
+
+let @i = 'Iciwimportf=xifromf df(i f)xI'
+
+"============================================================
 " Leader Key Setup <Space>
 "============================================================
 
@@ -126,6 +132,8 @@ nmap <silent> <leader><leader> :nohls<CR>
 nmap <leader>9 :call <SID>SynStack()<CR>
 nmap <leader>d :JsDoc<CR>
 nmap <leader>q :TernDef<CR>
+
+
 
 
 "============================================================

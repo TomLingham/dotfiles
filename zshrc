@@ -3,7 +3,10 @@
 #============================================
 
 export EDITOR="$VISUAL"
-export FZF_DEFAULT_COMMAND='ag --path-to-ignore $HOME/.agignore --hidden -i -g ""'
+
+export RG_COMMAND='rg --hidden --ignore-file ~/.gitignore --follow'
+export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
+export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 export FZF_PATH="$HOME/.fzf/bin"
 export LC_ALL="en_US.UTF-8"
 export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
