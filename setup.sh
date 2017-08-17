@@ -4,7 +4,6 @@
 # Dotfiles
 #=============================================
 dots=(
-  agignore
   aliases
   tmux.conf
   zshrc
@@ -34,7 +33,6 @@ curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 #=============================================
 # ZSH Setup
 #=============================================
-
 mkdir $HOME/.zfunc
 
 

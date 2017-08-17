@@ -18,7 +18,6 @@ brew install peco
 brew install python
 brew install python3
 brew install reattach-to-user-namespace
-brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install zplug
