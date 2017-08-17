@@ -49,6 +49,7 @@ alias gitp='git push'
 alias gitpb='git push -u origin $(gitb)'
 alias gitpl='git pull --rebase'
 alias gits='git status -s'
+alias gitct='git checkout-ticket'
 
 
 #============================================
