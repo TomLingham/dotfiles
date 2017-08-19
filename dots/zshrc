@@ -4,7 +4,7 @@
 
 export EDITOR="$VISUAL"
 
-export RG_COMMAND='rg --hidden --ignore-file ~/.gitignore --follow'
+export RG_COMMAND='rg --hidden --ignore-file ~/.gitignore --ignore-file ~/.ignore --follow'
 export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
 export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 export FZF_PATH="$HOME/.fzf/bin"

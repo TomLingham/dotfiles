@@ -11,7 +11,7 @@ dots=(
 );
 
 for i in "${dots[@]}"; do
-  ln -s "$HOME/.dotfiles/${i}" "$HOME/.${i}"
+  ln -s "$HOME/.dotfiles/dots/${i}" "$HOME/.${i}"
 done
 
 source $HOME/.zshrc
@@ -46,7 +46,7 @@ mkdir $HOME/.somebin
 # Run Installer Scripts
 #=============================================
 
-# Brew
-sh ./scripts/brew.sh
-sh ./scripts/rust.sh
-sh ./scripts/source.sh
+sh ./setup/brew.sh
+sh ./setup/rust.sh
+sh ./setup/pip.sh
+sh ./setup/source.sh

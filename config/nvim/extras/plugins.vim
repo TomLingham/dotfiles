@@ -13,8 +13,8 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'heavenshell/vim-jsdoc'
-"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-"Plug 'ternjs/tern_for_vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'ternjs/tern_for_vim'
 
 "----$ FlowJS
 Plug 'flowtype/vim-flow'
