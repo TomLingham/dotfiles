@@ -5,9 +5,10 @@
 #=============================================
 dots=(
   aliases
+  gitignore
+  ignore
   tmux.conf
   zshrc
-  gitignore
 );
 
 for i in "${dots[@]}"; do
