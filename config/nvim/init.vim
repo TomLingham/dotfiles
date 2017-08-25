@@ -2,6 +2,8 @@
 " General Settings
 "============================================================
 
+set shell=zsh
+
 " Neovim support true colors
 set termguicolors
 
@@ -134,6 +136,10 @@ nmap <leader>d :JsDoc<CR>
 nmap <leader>q :TernDef<CR>
 
 
+"============================================================
+" Commands
+"============================================================
+command! -nargs=1 Toml call TomlScript(<f-args>)
 
 
 "============================================================
@@ -148,6 +154,10 @@ function! s:SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" Run Toml Scripts
+function TomlScript(name)
+  execute '%!toml-script' shellescape(a:name)
+endfunc
 
 "============================================================
 " Source Extra Files

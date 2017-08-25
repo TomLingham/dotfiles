@@ -20,6 +20,10 @@ Plug 'ternjs/tern_for_vim'
 Plug 'flowtype/vim-flow'
 Plug 'wokalski/autocomplete-flow'
 
+"----$ Typescript
+Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
+Plug 'leafgarland/typescript-vim'
+
 "----$ SCSS
 Plug 'cakebaker/scss-syntax.vim'
 
@@ -141,6 +145,10 @@ function! LinterStatus() abort
     \   all_errors
     \)
 endfunction
+
+let g:ale_linters = {
+\   'typescript': ['tslint'],
+\}
 
 set statusline=%{LinterStatus()}
 

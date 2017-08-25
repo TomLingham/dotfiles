@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #============================================
 # General
@@ -7,6 +7,7 @@ alias ..='cd ..'
 alias c='clear'
 alias cd..='cd ..'
 alias code='cd ~/Code'
+alias tcode='cd ~/Tom/Code'
 alias dbuild='docker-compose build'
 alias ddown='docker-compose down'
 alias dup='docker-compose up --remove-orphans'
@@ -112,3 +113,6 @@ toml_script() {
   node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
 }
 
+without_proxy() {
+  http_proxy= https_proxy= all_proxy= no_proxy= $@
+}
