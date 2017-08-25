@@ -12,6 +12,15 @@ process.stdin.on('readable', () => {
 })
 
 process.stdin.on('end', () => {
-  process.stdout.write(JSON.stringify(JSON.parse(buffer), null, 2))
-  process.exit(0)
+  let output = buffer
+  let exitCode = 0
+
+  try {
+    output = JSON.stringify(JSON.parse(buffer), null, 2)
+  } catch (e) {
+    exitCode = 1
+  }
+
+  process.stdout.write(output)
+  process.exit(exitCode)
 })

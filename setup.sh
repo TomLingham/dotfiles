@@ -8,6 +8,7 @@ dots=(
   gitignore
   ignore
   tmux.conf
+  zshenv
   zshrc
 );
 
