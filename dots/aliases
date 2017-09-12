@@ -74,7 +74,7 @@ docker() {
       --build-arg no_proxy=${no_proxy} \
       "${@:2}"
   elif [[ $1 == "sh" ]]; then
-    docker run -it $2 sh
+    command docker run -it $2 sh
   else
     command docker "$@"
   fi
@@ -85,7 +85,7 @@ git() {
     command git clone \
       "${MAC_GIT_SSH}$2.git"
   elif [[ $1 == "checkout-ticket" ]]; then
-    git checkout -b `toml-script create-jira-branch-name $2` && \
+    command git checkout -b `toml-script create-jira-branch-name $2` && \
     toml-script transition-ticket $2 31
   elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U

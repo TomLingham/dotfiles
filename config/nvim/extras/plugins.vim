@@ -24,6 +24,9 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
 Plug 'leafgarland/typescript-vim'
 
+"----$ Groovy
+Plug 'modille/groovy.vim'
+
 "----$ SCSS
 Plug 'cakebaker/scss-syntax.vim'
 

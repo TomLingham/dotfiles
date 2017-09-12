@@ -80,7 +80,7 @@ set shiftwidth=2
 set expandtab
 
 " indentation based on filetype
-autocmd Filetype groovy setlocal ts=4 sw=4 expandtab
+autocmd Filetype groovy setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
 
 " Prevent vim from using save features because it screws with file watchers

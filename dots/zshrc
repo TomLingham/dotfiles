@@ -107,7 +107,7 @@ source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 # Theme
 #============================================
 
-# Dehaults
+# Defaults
 export TMUX_COLOR_BG='#333333'
 export TMUX_COLOR_FG='#aaaaaa'
 export TMUX_COLOR_ACCENT_BG='#bbbbbb'
