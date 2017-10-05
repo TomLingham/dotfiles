@@ -139,8 +139,8 @@ nmap <leader>q :TernDef<CR>
 "============================================================
 " Commands
 "============================================================
-command! -nargs=1 Toml call TomlScript(<f-args>)
-
+"command! -nargs=1 Toml call TomlScript(<f-args>)
+command Toml toml-script
 
 "============================================================
 " Custom Functions
@@ -152,11 +152,6 @@ function! s:SynStack()
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-" Run Toml Scripts
-function TomlScript(name)
-  execute '%!toml-script' shellescape(a:name)
 endfunc
 
 "============================================================

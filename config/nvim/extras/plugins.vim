@@ -149,10 +149,6 @@ function! LinterStatus() abort
     \)
 endfunction
 
-let g:ale_linters = {
-\   'typescript': ['tslint'],
-\}
-
 set statusline=%{LinterStatus()}
 
 "============================================================
