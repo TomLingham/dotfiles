@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const jiraConnect = require('./jira-connect')
 const sanitizeTicket = require('./sanitize-ticket-id')
 
@@ -11,7 +12,7 @@ module.exports = async (issueId) => {
   const issue = await jira.findIssue(issueId, '', ['summary', 'issuetype'])
   const fields = issue.fields
 
-  return `${typeMap[fields.issuetype.name] || 'feature'}/${issueId}-${_.kebabCase(fields.summary)}`
+  return `${typeMap[fields.issuetype.name] || 'feature'}/${issueId}-${_.kebabCase(_.truncate(fields.summary, { length: 60, omission: '' }))}`
 }
 
 

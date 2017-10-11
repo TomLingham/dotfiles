@@ -70,6 +70,7 @@ Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
+Plug 'pbrisbin/vim-mkdir'
 
 
 call plug#end()

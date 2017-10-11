@@ -51,6 +51,9 @@ compinit
 [ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
 [ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
 
+# Custom Scripts
+[ -s "$HOME/.custom" ] && source ~/.custom
+
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -61,9 +64,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # FZF
 [ -s "$HOME/.fzf.zsh" ] && source ~/.fzf.zsh
-
-# Custom Scripts
-[ -s "$HOME/.custom" ] && source ~/.custom
 
 
 #============================================
