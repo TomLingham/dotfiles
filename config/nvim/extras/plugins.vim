@@ -17,7 +17,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim'
 
 "----$ ReasonML
-Plug "reasonml-editor/vim-reason-plus"
+Plug 'reasonml-editor/vim-reason-plus'
 
 "----$ FlowJS
 Plug 'flowtype/vim-flow'
