@@ -1,5 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
+"----$ Language Server
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
 "----$ Autocomplate
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -76,6 +79,25 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
+"============================================================
+" Language Client
+"============================================================
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+  \ 'reason': ['ocaml-language-server', '--stdio'],
+  \ 'ocaml': ['ocaml-language-server', '--stdio'],
+  \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
 
 "============================================================
 " Visual Tweaks
@@ -83,7 +105,7 @@ call plug#end()
 
 " Remove pipe character between window splits. The whitespace
 " character after the \ is required!
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Style JsDocs
 let g:javascript_plugin_jsdoc=1
