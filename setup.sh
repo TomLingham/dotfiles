@@ -21,7 +21,15 @@ source $HOME/.zshrc
 #=============================================
 # VS Code Configuration
 #=============================================
-ln -s $HOME/.dotfiles/vscode/* "$HOME/Library/Application Support/Code/User/"
+vsconfs=(
+  keybindings.json
+  settings.json
+  vsicons.settings.json
+)
+
+for i in "${vsconfs[@]}"; do
+  ln -sF "$HOME/.dotfiles/vscode/${i}" "$HOME/Library/Application Support/Code/User/${i}"
+done
 
 
 #=============================================

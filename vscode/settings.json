@@ -3,7 +3,6 @@
     "editor.fontSize": 13,
     "explorer.openEditors.visible": 0,
     "flow.stopFlowOnExit": true,
-    "http.proxy": "http://gopha.auiag.corp:8080",
     "javascript.validate.enable": false,
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": false,
