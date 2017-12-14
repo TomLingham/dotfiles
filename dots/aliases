@@ -99,6 +99,10 @@ tdaa() {
   tda "$*"
 }
 
+vs() {
+  command code $@
+}
+
 archive() {
   FILENAME=$(date +"%FT%H%M%z")-$1
   mv $1 ~/.CODE_ARCHIVE/$FILENAME
