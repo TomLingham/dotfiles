@@ -18,6 +18,11 @@ done
 
 source $HOME/.zshrc
 
+#=============================================
+# VS Code Configuration
+#=============================================
+ln -s $HOME/.dotfiles/vscode/* "$HOME/Library/Application Support/Code/User/"
+
 
 #=============================================
 # Neovim Configuration

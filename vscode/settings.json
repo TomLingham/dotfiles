@@ -1,0 +1,19 @@
+{
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "explorer.openEditors.visible": 0,
+    "flow.stopFlowOnExit": true,
+    "http.proxy": "http://gopha.auiag.corp:8080",
+    "javascript.validate.enable": false,
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true,
+    "workbench.iconTheme": "vscode-icons",
+    "search.useIgnoreFiles": true,
+    "search.useIgnoreFilesByDefault": true,
+
+    "vim.leader": "<space>",
+    "vim.useCtrlKeys": true
+}
