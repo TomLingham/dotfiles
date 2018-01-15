@@ -11,10 +11,25 @@
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": "vscode-icons",
     "search.useIgnoreFiles": true,
-    "search.useIgnoreFilesByDefault": true,
-
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
-    "prettier.requireConfig": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "flow.useNPMPackagedFlow": true,
+    "reason.codelens.enabled": false,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.formatDocument",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "prettier.requireConfig": true
 }

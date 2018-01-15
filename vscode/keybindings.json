@@ -15,5 +15,9 @@
   {
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "editor.emmet.action.expandAbbreviation"
   }
 ]
