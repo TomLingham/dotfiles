@@ -1,21 +1,17 @@
 {
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
+    "editor.tabSize": 2,
     "explorer.openEditors.visible": 0,
     "flow.stopFlowOnExit": true,
+    "flow.useNPMPackagedFlow": true,
     "javascript.validate.enable": false,
-    "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Dracula",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true,
-    "workbench.iconTheme": "vscode-icons",
+    "prettier.requireConfig": true,
+    "reason.codelens.enabled": false,
     "search.useIgnoreFiles": true,
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
-    "editor.tabSize": 2,
-    "flow.useNPMPackagedFlow": true,
-    "reason.codelens.enabled": false,
+    "vim.enableNeovim": true,
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": [
@@ -31,5 +27,10 @@
             ]
         }
     ],
-    "prettier.requireConfig": true
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true
 }

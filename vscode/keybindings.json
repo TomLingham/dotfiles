@@ -18,6 +18,10 @@
   },
   {
     "key": "ctrl+e",
-    "command": "editor.emmet.action.expandAbbreviation"
+    "command": "editor.emmet.action.expandabbreviation"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
   }
 ]
