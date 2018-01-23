@@ -31,6 +31,10 @@ for i in "${vsconfs[@]}"; do
   ln -sF "$HOME/.dotfiles/vscode/${i}" "$HOME/Library/Application Support/Code/User/${i}"
 done
 
+while read in; do
+  vs --install-extension "$in"
+done < "$HOME/.dotfiles/vscode/extensions"
+
 
 #=============================================
 # Neovim Configuration
