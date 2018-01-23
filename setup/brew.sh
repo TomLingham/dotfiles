@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 source $HOME/.aliases
 
 if ! program_exists brew ; then
@@ -39,3 +41,4 @@ done
 # Casks
 brew cask install google-chrome
 brew cask install iterm2
+brew cask install visual-studio-code

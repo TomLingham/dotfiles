@@ -19,24 +19,6 @@ done
 source $HOME/.zshrc
 
 #=============================================
-# VS Code Configuration
-#=============================================
-vsconfs=(
-  keybindings.json
-  settings.json
-  vsicons.settings.json
-)
-
-for i in "${vsconfs[@]}"; do
-  ln -sF "$HOME/.dotfiles/vscode/${i}" "$HOME/Library/Application Support/Code/User/${i}"
-done
-
-while read in; do
-  vs --install-extension "$in"
-done < "$HOME/.dotfiles/vscode/extensions"
-
-
-#=============================================
 # Neovim Configuration
 #=============================================
 ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
@@ -70,3 +52,22 @@ sh ./setup/brew.sh
 sh ./setup/rust.sh
 sh ./setup/pip.sh
 sh ./setup/source.sh
+
+
+#=============================================
+# VS Code Configuration
+#=============================================
+vsconfs=(
+  keybindings.json
+  settings.json
+  vsicons.settings.json
+)
+
+for i in "${vsconfs[@]}"; do
+  ln -sF "$HOME/.dotfiles/vscode/${i}" "$HOME/Library/Application Support/Code/User/${i}"
+done
+
+while read in; do
+  vs --install-extension "$in"
+done < "$HOME/.dotfiles/vscode/extensions"
+
