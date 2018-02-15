@@ -18,7 +18,7 @@
   },
   {
     "key": "ctrl+e",
-    "command": "editor.emmet.action.expandabbreviation"
+    "command": "editor.emmet.action.expandAbbreviation"
   },
   {
     "key": "ctrl+p",
