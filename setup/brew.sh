@@ -17,15 +17,18 @@ brew tap neovim/neovim
 packages=(
   coreutils
   git
+  go
   kubernetes-cli
   mas
   neovim
+  nvm
   peco
   python
   python3
   reattach-to-user-namespace
   tmux
   tree
+  vim
   zplug
   zsh
 )

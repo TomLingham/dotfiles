@@ -6,6 +6,7 @@ esbenp.prettier-vscode
 flowtype.flow-for-vscode
 freebroccolo.reasonml
 jpoissonnier.vscode-styled-components
+kokororin.vscode-phpfmt
 patrys.vscode-code-outline
 robertohuertasm.vscode-icons
 vscodevim.vim

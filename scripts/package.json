@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My scripts for wreacking havoc upon the civilians of toml land",
   "scripts": {
+    "prettier": "prettier --write src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -12,5 +13,8 @@
     "lodash": "^4.17.4",
     "prompt": "^1.0.0",
     "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
   }
 }

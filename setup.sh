@@ -16,6 +16,7 @@ for i in "${dots[@]}"; do
   ln -s "$HOME/.dotfiles/dots/${i}" "$HOME/.${i}"
 done
 
+touch $HOME/.custom
 source $HOME/.zshrc
 
 #=============================================
@@ -23,13 +24,6 @@ source $HOME/.zshrc
 #=============================================
 ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
 ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
-
-
-#=============================================
-# Install Vim Plug
-#=============================================
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
 #=============================================
@@ -47,11 +41,19 @@ mkdir $HOME/.somebin
 #=============================================
 # Run Installer Scripts
 #=============================================
-
 sh ./setup/brew.sh
 sh ./setup/rust.sh
 sh ./setup/pip.sh
 sh ./setup/source.sh
+
+
+#=============================================
+# Install Vim Plug
+#=============================================
+curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim +PlugInstall +qall
 
 
 #=============================================
