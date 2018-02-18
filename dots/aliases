@@ -120,7 +120,7 @@ program_exists() {
 # Run a node script in my scripts folder
 # fpath=( $HOME/.dotfiles/completions fpath )
 toml_script() {
-  node -r $HOME/.dotfiles/scripts/global.js $HOME/.dotfiles/scripts/$@
+  node -r $HOME/.dotfiles/scripts/src/global.js $HOME/.dotfiles/scripts/src/$@
 }
 
 without_proxy() {
