@@ -3,12 +3,19 @@
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "explorer.openEditors.visible": 0,
+    "flow.enabled": false,
     "flow.stopFlowOnExit": true,
     "flow.useNPMPackagedFlow": true,
     "javascript.validate.enable": false,
     "prettier.requireConfig": true,
     "reason.codelens.enabled": false,
     "search.useIgnoreFiles": true,
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true,
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
@@ -26,11 +33,5 @@
                 }
             ]
         }
-    ],
-    "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true
+    ]
 }

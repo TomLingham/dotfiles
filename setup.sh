@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 #=============================================
 # Dotfiles
@@ -17,11 +17,12 @@ for i in "${dots[@]}"; do
 done
 
 touch $HOME/.custom
-source $HOME/.zshrc
+source $HOME/.aliases
 
 #=============================================
 # Neovim Configuration
 #=============================================
+mkdir -p $HOME/.config/nvim
 ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
 ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
 
@@ -48,12 +49,21 @@ sh ./setup/source.sh
 
 
 #=============================================
+# Global GIT config and hooks
+#=============================================
+git config --global core.hooksPath $HOME/.dotfiles/git/hooks
+
+#=============================================
 # Install Vim Plug
 #=============================================
 curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 vim +PlugInstall +qall
+
+mkdir -p $HOME/.vim/undo
+mkdir -p $HOME/.vim/backup
+mkdir -p $HOME/.vim/swap
 
 
 #=============================================

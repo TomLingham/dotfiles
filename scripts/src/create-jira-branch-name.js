@@ -19,6 +19,7 @@ module.exports = async issueId => {
 };
 
 if (require.main === module) {
+  console.log(args);
   module
     .exports(sanitizeTicket(args[0]))
     .then(console.log)

@@ -15,6 +15,10 @@ export SOURCE_DIR=$HOME/Source
 export ZPLUG_HOME=/usr/local/opt/zplug
 export RUST_SRC_PATH=$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/
 
+export HISTFILE=~/.zsh_history
+export HISTSIZE=500
+export SAVEHIST=$HISTSIZE
+
 source <(go env)
 
 #============================================
@@ -48,14 +52,18 @@ compinit
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 # Load Pure Prompt
-[ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
-[ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
+autoload -U promptinit; promptinit
+prompt pure
+
+#[ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
+#[ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
 
 # Custom Scripts
 [ -s "$HOME/.custom" ] && source ~/.custom
 
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
+source $(brew --prefix nvm)/nvm.sh
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Load SDK Man
@@ -100,7 +108,7 @@ source <(npm completion)
 #============================================
 # Todoist
 #============================================
-source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
+#source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 
 #============================================

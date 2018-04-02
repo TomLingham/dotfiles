@@ -10,8 +10,9 @@ alias code='cd ~/Code'
 alias tcode='cd ~/Tom/Code'
 alias dbuild='docker-compose build'
 alias ddown='docker-compose down'
+alias dots='cd ~/.dotfiles'
 alias dup='docker-compose up --remove-orphans'
-alias fuck='sudo $(history -p \!\!)'
+alias fuck='sudo $(fc -ln -1)'
 alias lm='ls -GlhF --color --group-directories-first'
 alias ll='lm -a'
 alias ls='gls'
@@ -83,15 +84,14 @@ docker() {
 
 git() {
   if [[ $1 == "clonem" ]]; then
-    command git clone \
-      "${MAC_GIT_SSH}$2.git"
+    command git clone "${GIT_BASE_PATH}/$2.git"
   elif [[ $1 == "checkout-ticket" ]]; then
     command git checkout -b `toml-script create-jira-branch-name $2` && \
     toml-script transition-ticket $2 31
   elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U
   else
-    command git "$@"
+    command git $@
   fi
 }
 
@@ -125,4 +125,15 @@ toml_script() {
 
 without_proxy() {
   http_proxy= https_proxy= all_proxy= no_proxy= $@
+}
+
+clear_proxy() {
+  export http_proxy=
+  export https_proxy=
+  export all_proxy=
+  export no_proxy=
+}
+
+proxy_all() {
+  no_proxy= $@
 }

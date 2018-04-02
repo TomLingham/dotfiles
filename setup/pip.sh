@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 pip3 install --user \
   neovim \

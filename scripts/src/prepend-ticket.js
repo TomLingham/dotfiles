@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const ticketRegex = new RegExp("(CID-[0-9]+)", "i");
+const ticketRegex = new RegExp("(GST-[0-9]+)", "i");
 
 const commitMsgPath = `${pwd}/${args[0]}`;
 const branchName = args[2];

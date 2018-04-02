@@ -12,11 +12,20 @@ const schema = {
   }
 };
 
+if (!args[0]) {
+  console.error("Must provide service identifier. (e.g. jira)");
+  process.exit();
+}
+
+const SERVICE_NAME = args[0];
+
+console.log(`Storing credentials for service: ${SERVICE_NAME}`);
+
 prompt.start();
 
 prompt.get(schema, function(err, { username, password }) {
   keytar
-    .setPassword(passid, username, password)
-    .then(() => console.log("Password set successfully :)"))
+    .setPassword(SERVICE_NAME, username, password)
+    .then(() => console.log(`Credentials set successfully!`))
     .catch(console.error);
 });
