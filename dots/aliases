@@ -86,8 +86,7 @@ git() {
   if [[ $1 == "clonem" ]]; then
     command git clone "${GIT_BASE_PATH}/$2.git"
   elif [[ $1 == "checkout-ticket" ]]; then
-    command git checkout -b `toml-script create-jira-branch-name $2` && \
-    toml-script transition-ticket $2 31
+    command git checkout -b `toml-script create-jira-branch-name $2`
   elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U
   else
