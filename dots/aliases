@@ -41,7 +41,7 @@ alias aws-docker-login='$(aws ecr get-login --no-include-email --region ap-south
 #============================================
 alias gita='git add'
 alias gitaa='git add -A'
-alias gitb="git symbolic-ref HEAD | sed 's!refs\/heads\/!!'"
+alias gitb='git rev-parse --abbrev-ref HEAD'
 alias gitc='git commit -m'
 alias gitca='git commit --amend'
 alias gitcb='git checkout -b'
@@ -127,10 +127,10 @@ without_proxy() {
 }
 
 clear_proxy() {
-  export http_proxy=
-  export https_proxy=
-  export all_proxy=
-  export no_proxy=
+  unset http_proxy
+  unset https_proxy
+  unset all_proxy
+  unset no_proxy
 }
 
 proxy_all() {
