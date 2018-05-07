@@ -2,7 +2,6 @@ EditorConfig.EditorConfig
 PeterJausovec.vscode-docker
 dbaeumer.vscode-eslint
 dracula-theme.theme-dracula
-eg2.tslint
 esbenp.prettier-vscode
 flowtype.flow-for-vscode
 freebroccolo.reasonml
@@ -10,7 +9,9 @@ jpoissonnier.vscode-styled-components
 kokororin.vscode-phpfmt
 leizongmin.node-module-intellisense
 mathiasfrohlich.Kotlin
+ms-python.python
 patrys.vscode-code-outline
 robertohuertasm.vscode-icons
+rust-lang.rust
 slevesque.vscode-hexdump
 vscodevim.vim
