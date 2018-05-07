@@ -51,12 +51,12 @@ compinit
 # Load Aliases
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 
+
 # Load Pure Prompt
 autoload -U promptinit; promptinit
-prompt pure
 
-#[ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
-#[ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
+[ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
+[ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
 
 # Custom Scripts
 [ -s "$HOME/.custom" ] && source ~/.custom

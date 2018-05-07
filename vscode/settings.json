@@ -36,5 +36,7 @@
     ],
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
-    }
+    },
+    "python.pythonPath": "python3",
+    "python.linting.pylintPath": "pylint"
 }
