@@ -3,6 +3,7 @@
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "explorer.openEditors.visible": 0,
+    "eslint.enable": false,
     "flow.enabled": false,
     "flow.stopFlowOnExit": true,
     "flow.useNPMPackagedFlow": true,
@@ -34,9 +35,13 @@
             ]
         }
     ],
+    "gitlens.historyExplorer.enabled": true,
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
     "python.pythonPath": "python3",
-    "python.linting.pylintPath": "pylint"
+    "python.linting.pylintPath": "pylint",
+    "[makefile]": {
+        "editor.insertSpaces": false
+    }
 }

@@ -44,6 +44,7 @@ alias gitaa='git add -A'
 alias gitb='git rev-parse --abbrev-ref HEAD'
 alias gitc='git commit -m'
 alias gitca='git commit --amend'
+alias gitcane='git commit --amend --no-edit'
 alias gitcb='git checkout -b'
 alias gitd='git diff'
 alias gitdw='git diff -w'
@@ -105,6 +106,14 @@ vs() {
 archive() {
   FILENAME=$(date +"%FT%H%M%z")-$1
   mv $1 ~/.CODE_ARCHIVE/$FILENAME
+}
+
+note() {
+  TITLE=$1
+  if [ ! -z "$TITLE" ]; then
+    TITLE="$TITLE-"
+  fi
+  command code ~/Notes/$TITLE$(date +%Y-%m-%dT%H:%M:%S).md
 }
 
 #============================================
