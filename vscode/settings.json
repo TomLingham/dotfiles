@@ -20,7 +20,7 @@
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<leader>",
@@ -33,15 +33,14 @@
                     "args": []
                 }
             ]
-        }
+        },
     ],
     "gitlens.historyExplorer.enabled": true,
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "python.pythonPath": "python3",
-    "python.linting.pylintPath": "pylint",
     "[makefile]": {
         "editor.insertSpaces": false
-    }
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }

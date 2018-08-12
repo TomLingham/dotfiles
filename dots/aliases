@@ -18,7 +18,7 @@ alias ll='lm -a'
 alias ls='gls'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
-alias serve='python -m SimpleHTTPServer'
+alias serve='echo http://localhost:8000 && python -m SimpleHTTPServer &>/dev/null'
 alias src='source ~/.zshrc'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmux='tmux -u -2'
@@ -54,7 +54,8 @@ alias gitpb='git push -u origin $(gitb)'
 alias gitpl='git pull --rebase'
 alias gits='git status -s'
 alias gitct='git checkout-ticket'
-
+alias gitrc='git rebase --continue'
+alias gitra='git rebase --abort'
 
 #============================================
 # Todoist
@@ -93,6 +94,16 @@ git() {
   else
     command git $@
   fi
+}
+
+gitro() {
+  BRANCH=$1
+  if [ ! -z "$BRANCH" ]; then
+    BRANCH="master"
+  fi
+  git stash
+  gitpl origin $1
+  git stash apply
 }
 
 tdaa() {
@@ -145,3 +156,4 @@ clear_proxy() {
 proxy_all() {
   no_proxy= $@
 }
+

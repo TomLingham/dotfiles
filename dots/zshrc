@@ -36,21 +36,11 @@ compinit
 
 
 #============================================
-# ZPlug
-#============================================
-
-# source $ZPLUG_HOME/init.zsh
-
-# zplug load
-
-
-#============================================
 # Loading...
 #============================================
 
 # Load Aliases
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
-
 
 # Load Pure Prompt
 autoload -U promptinit; promptinit
@@ -84,11 +74,11 @@ path+=("$HOME/.cargo/bin")
 # Golang
 path+=("$GOPATH/bin")
 
-# Python
-path+=("$HOME/Library/Python/3.6/bin")
-
 # Random Bins
 path+=("$HOME/.somebin")
+
+# Python User Packages
+path+=("/Users/tom/Library/Python/2.7/bin")
 
 #============================================
 # FPath
@@ -103,12 +93,6 @@ fpath=( /usr/local/share/zsh-completions $fpath )
 #============================================
 
 source <(npm completion)
-
-
-#============================================
-# Todoist
-#============================================
-#source "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 
 #============================================

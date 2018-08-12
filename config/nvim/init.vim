@@ -161,9 +161,3 @@ endfunc
 
 " Plugins
 source $HOME/.config/nvim/extras/plugins.vim
-
-" Theme customisations
-let custom_theme_settings=$HOME.'/.dotfiles/themes/'.$VIM_COLORSCHEME.'.vim'
-if filereadable(custom_theme_settings)
-  exec "source ".custom_theme_settings
-endif

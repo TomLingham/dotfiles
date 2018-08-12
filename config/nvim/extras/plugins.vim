@@ -1,8 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-"----$ Language Server
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-
 "----$ Autocomplate
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -16,8 +13,6 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim'
 
 "----$ ReasonML
 Plug 'reasonml-editor/vim-reason-plus'
@@ -25,10 +20,6 @@ Plug 'reasonml-editor/vim-reason-plus'
 "----$ FlowJS
 Plug 'flowtype/vim-flow'
 Plug 'wokalski/autocomplete-flow'
-
-"----$ Typescript
-Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
-Plug 'leafgarland/typescript-vim'
 
 "----$ Groovy
 Plug 'modille/groovy.vim'
@@ -73,7 +64,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
-Plug 'ntpeters/vim-better-whitespace'
+"Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 
 
@@ -237,3 +228,8 @@ let g:airline_powerline_fonts=1
 " Stop AutoPairs closing over line
 let g:AutoPairsMultilineClose=0
 
+" Theme customisations
+let custom_theme_settings=$HOME.'/.dotfiles/themes/'.$VIM_COLORSCHEME.'.vim'
+if filereadable(custom_theme_settings)
+  exec "source ".custom_theme_settings
+endif
