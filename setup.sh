@@ -4,16 +4,17 @@
 # Dotfiles
 #=============================================
 dots=(
-  aliases
-  gitignore
-  ignore
-  tmux.conf
-  zshenv
-  zshrc
+  .aliases
+  .gitignore
+  .ignore
+  .tmux.conf
+  .zshenv
+  .zshrc
+  .alacritty.yml
 );
 
 for i in "${dots[@]}"; do
-  ln -s "$HOME/.dotfiles/dots/${i}" "$HOME/.${i}"
+  [ ! -h "$HOME/$i" ] && ln -s "$HOME/.dotfiles/dots/$i" "$HOME/$i"
 done
 
 touch $HOME/.custom
@@ -22,21 +23,21 @@ source $HOME/.aliases
 #=============================================
 # Neovim Configuration
 #=============================================
-mkdir -p $HOME/.config/nvim
-ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
-ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
+[ ! -d "$HOME/.config/nvim" ] && mkdir -p $HOME/.config/nvim
+[ ! -h "$HOME/.config/nvim/init.vim" ] && ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
+[ ! -h "$HOME/.config/nvim/extras" ] && ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
 
 
 #=============================================
 # ZSH Setup
 #=============================================
-mkdir $HOME/.zfunc
+[ ! -d "$HOME/.zfunc" ] && mkdir $HOME/.zfunc
 
 
 #=============================================
 # Random bins
 #=============================================
-mkdir $HOME/.somebin
+[ ! -d "$HOME/.somebin" ] && mkdir $HOME/.somebin
 
 
 #=============================================
@@ -52,6 +53,7 @@ sh ./setup/source.sh
 # Global GIT config and hooks
 #=============================================
 git config --global core.hooksPath $HOME/.dotfiles/git/hooks
+
 
 #=============================================
 # Install Vim Plug
