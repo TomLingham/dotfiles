@@ -50,20 +50,13 @@ alias gitd='git diff'
 alias gitdw='git diff -w'
 alias gitl='git log --oneline'
 alias gitp='git push'
+alias gitpt='git push --follow-tags'
 alias gitpb='git push -u origin $(gitb)'
 alias gitpl='git pull --rebase'
 alias gits='git status -s'
 alias gitct='git checkout-ticket'
 alias gitrc='git rebase --continue'
 alias gitra='git rebase --abort'
-
-#============================================
-# Todoist
-#============================================
-alias tda='todoist add'
-alias tdai='todoist add -P 178908924'
-alias tdl='todoist list'
-alias tds='todoist sync'
 
 
 #============================================
@@ -80,7 +73,7 @@ docker() {
   elif [[ $1 == "sh" ]]; then
     command docker run -it $2 sh
   else
-    command docker "$@"
+    command docker $@
   fi
 }
 

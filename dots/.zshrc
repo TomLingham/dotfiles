@@ -3,8 +3,7 @@
 #============================================
 
 export EDITOR="$VISUAL"
-
-export RG_COMMAND='rg --hidden --ignore-file ~/.gitignore --ignore-file ~/.ignore --follow'
+export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
 export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
 export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 export FZF_PATH="$HOME/.fzf/bin"
@@ -15,7 +14,7 @@ export SOURCE_DIR=$HOME/Source
 export ZPLUG_HOME=/usr/local/opt/zplug
 export RUST_SRC_PATH=$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/
 
-export HISTFILE=~/.zsh_history
+export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=500
 export SAVEHIST=$HISTSIZE
 
@@ -41,10 +40,6 @@ compinit
 # Load Aliases
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 
-# Load Pure Prompt
-autoload -U promptinit; promptinit
-[ -s "$SOURCE_DIR/pure/async.zsh" ] && source "$SOURCE_DIR/pure/async.zsh"
-[ -s "$SOURCE_DIR/pure/pure.zsh" ] && source "$SOURCE_DIR/pure/pure.zsh"
 
 # Custom Scripts
 [ -s "$HOME/.custom" ] && source ~/.custom
@@ -57,6 +52,8 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+# FZF
+[ -s "$HOME/.fzf.zsh" ] && source $HOME/.fzf.zsh
 
 #============================================
 # Path
@@ -71,24 +68,24 @@ path+=("$GOPATH/bin")
 # Random Bins
 path+=("$HOME/.somebin")
 
-# Python User Packages
-path+=("/Users/tom/Library/Python/2.7/bin")
 
 #============================================
 # FPath
 #============================================
+fpath+=("$HOME/.zfunc")
 
-fpath=( ~/.zfunc "${fpath[@]}" )
-fpath=( /usr/local/share/zsh-completions $fpath )
 
+#============================================
+# Prompt
+#============================================
+autoload -U promptinit; promptinit
+prompt pure
 
 #============================================
 # Autocompletions
 #============================================
-
-source <(npm completion)
-
 source <(go env)
+source <(npm completion)
 
 
 #============================================

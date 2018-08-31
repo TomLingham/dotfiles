@@ -42,5 +42,8 @@
     "[makefile]": {
         "editor.insertSpaces": false
     },
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "files.associations": {
+        "Jenkinsfile*": "groovy"
+    }
 }
