@@ -2,18 +2,12 @@
 
 source $HOME/.aliases
 
-if ! program_exists brew ; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+# Taps (Repositories)
+taps=(
+  neovim/neovim
+)
 
-function is_installed {
-  brew ls --versions $1 > /dev/null
-}
-
-# Taps
-brew tap neovim/neovim
-
-# Packages
+# Packages (CLI/Binaries)
 packages=(
   coreutils
   git
@@ -21,27 +15,46 @@ packages=(
   kubernetes-cli
   mas
   neovim
-  nvm
-  peco
   python
   python3
-  reattach-to-user-namespace
   tmux
   tree
   vim
+  yarn
   zplug
   zsh
 )
 
+# Casks (Grpahical Applications)
+casks=(
+  google-chrome
+  iterm2
+  visual-studio-code
+)
+
+if ! program_exists brew; then
+  echo "Homebrew not installed."
+  echo "Installing Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" >/dev/null
+  echo "Homebrew finished installing."
+fi
+
+for tap in "${taps[@]}"; do
+  brew tap $tap
+done
+
 for package in "${packages[@]}"; do
-  if is_installed $package ; then
-    echo "[homebrew] $package is already installed"
+  if brew ls --versions $package >/dev/null; then
+    echo "[homebrew:package] $package is already installed"
   else
     brew install $package
   fi
 done
 
-# Casks
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install visual-studio-code
+for cask in "${casks[@]}"; do
+  if brew cask ls --versions $cask >/dev/null; then
+    echo "[homebrew:cask] $cask is already installed"
+  else
+    brew cask install $cask
+  fi
+done
