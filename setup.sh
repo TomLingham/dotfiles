@@ -4,14 +4,14 @@
 # Dotfiles
 #=============================================
 dots=(
+  .alacritty.yml
   .aliases
   .gitignore
   .ignore
   .tmux.conf
   .zshenv
   .zshrc
-  .alacritty.yml
-);
+)
 
 for i in "${dots[@]}"; do
   [ ! -h "$HOME/$i" ] && ln -s "$HOME/.dotfiles/dots/$i" "$HOME/$i"
@@ -44,8 +44,8 @@ source $HOME/.aliases
 # Run Installer Scripts
 #=============================================
 sh ./setup/brew.sh
-sh ./setup/rust.sh
 sh ./setup/pip.sh
+sh ./setup/rust.sh
 sh ./setup/source.sh
 
 
