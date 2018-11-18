@@ -2,6 +2,7 @@
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.tabSize": 2,
+    "editor.acceptSuggestionOnCommitCharacter": false,
     "explorer.openEditors.visible": 0,
     "eslint.enable": false,
     "flow.enabled": false,
@@ -26,11 +27,20 @@
                 "<leader>",
                 "f"
             ],
-            "after": [],
             "commands": [
                 {
                     "command": "editor.action.formatDocument",
-                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                {
+                    "command": "docthis.documentThis",
                 }
             ]
         },
@@ -44,6 +54,18 @@
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "files.associations": {
-        "Jenkinsfile*": "groovy"
-    }
+        "Jenkinsfile*": "groovy",
+        "Dockerfile*": "dockerfile"
+    },
+    "vsicons.associations.files": [
+        {
+            "icon": "webpack",
+            "extensions": ["webpack.config.node.ts"],
+            "filename": true,
+            "format": "svg"
+        }
+    ],
+    "editor.renderWhitespace": "all",
+    "gitlens.mode.active": "zen",
+    "explorer.confirmDragAndDrop": false
 }

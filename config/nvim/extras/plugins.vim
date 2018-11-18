@@ -7,12 +7,15 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-lang/vim-elixir'
 
-"----$ Javascript
+"----$ JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'heavenshell/vim-jsdoc'
+
+"----$ TypeScript
+Plug 'leafgarland/typescript-vim'
 
 "----$ ReasonML
 Plug 'reasonml-editor/vim-reason-plus'

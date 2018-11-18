@@ -109,3 +109,5 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

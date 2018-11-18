@@ -28,6 +28,7 @@ alias toml-script='toml_script'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
+alias notes='cd ~/Notes'
 
 
 #============================================
@@ -49,6 +50,8 @@ alias gitcb='git checkout -b'
 alias gitd='git diff'
 alias gitdw='git diff -w'
 alias gitl='git log --oneline'
+alias gitl1='git lg1'
+alias gitl2='git lg2'
 alias gitp='git push'
 alias gitpt='git push --follow-tags'
 alias gitpb='git push -u origin $(gitb)'
@@ -71,7 +74,7 @@ docker() {
       --build-arg no_proxy=${no_proxy} \
       "${@:2}"
   elif [[ $1 == "sh" ]]; then
-    command docker run -it $2 sh
+    command docker exec -it $2 sh
   else
     command docker $@
   fi
@@ -84,6 +87,11 @@ git() {
     command git checkout -b `toml-script create-jira-branch-name $2`
   elif [[ $1 == "show-conflicts" ]]; then
     command git diff --name-only --diff-filter=U
+  elif [[ $1 == "checkout-please" ]]; then
+    git stash
+    git checkout $2
+    git pull --rebase
+    git stash apply
   else
     command git $@
   fi
@@ -95,7 +103,7 @@ gitro() {
     BRANCH="master"
   fi
   git stash
-  gitpl origin $1
+  gitpl origin $BRANCH
   git stash apply
 }
 
