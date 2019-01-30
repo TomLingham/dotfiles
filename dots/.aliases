@@ -9,15 +9,18 @@ alias cd..='cd ..'
 alias code='cd ~/Code'
 alias tcode='cd ~/Tom/Code'
 alias dbuild='docker-compose build'
-alias ddown='docker-compose down'
 alias dots='cd ~/.dotfiles'
 alias dup='docker-compose up --remove-orphans'
+alias ddown='docker-compose down'
+alias d='docker'
+alias dcomp='docker-compose'
 alias fuck='sudo $(fc -ln -1)'
 alias lm='ls -GlhF --color --group-directories-first'
 alias ll='lm -a'
 alias ls='gls'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-nightly='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder:nightly'
+alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
 alias serve='echo http://localhost:8000 && python -m SimpleHTTPServer &>/dev/null'
 alias src='source ~/.zshrc'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
@@ -47,19 +50,21 @@ alias gitc='git commit -m'
 alias gitca='git commit --amend'
 alias gitcane='git commit --amend --no-edit'
 alias gitcb='git checkout -b'
+alias gitct='git checkout-ticket'
 alias gitd='git diff'
 alias gitdw='git diff -w'
-alias gitl='git log --oneline'
 alias gitl1='git lg1'
 alias gitl2='git lg2'
+alias gitl='git log --oneline'
+alias gitlb='git branch --sort=-committerdate'
 alias gitp='git push'
-alias gitpt='git push --follow-tags'
 alias gitpb='git push -u origin $(gitb)'
 alias gitpl='git pull --rebase'
-alias gits='git status -s'
-alias gitct='git checkout-ticket'
-alias gitrc='git rebase --continue'
+alias gitpt='git push --follow-tags'
 alias gitra='git rebase --abort'
+alias gitrc='git rebase --continue'
+alias gits='git status -s'
+alias gitfa='git fetch --all'
 
 
 #============================================
@@ -73,6 +78,8 @@ docker() {
       --build-arg https_proxy=${http_proxy} \
       --build-arg no_proxy=${no_proxy} \
       "${@:2}"
+  elif [[ $1 == "kill-all" ]]; then
+    command docker kill $(docker ps -aq)
   elif [[ $1 == "sh" ]]; then
     command docker exec -it $2 sh
   else

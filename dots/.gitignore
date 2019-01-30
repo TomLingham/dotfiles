@@ -5,3 +5,4 @@
 .tern-project
 .vscode
 *.iml
+yarn-error.log
