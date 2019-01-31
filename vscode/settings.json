@@ -22,6 +22,7 @@
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -97,4 +98,9 @@
         "yml"
     ],
     "shellformat.flag": "-i 2"
+    "gitlens.mode.active": "zen",
+    "[groovy]": {
+        "editor.tabSize": 4
+    }
+  }
 }

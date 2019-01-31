@@ -1,7 +1,6 @@
 #============================================
 # ENV Settings
 #============================================
-
 export EDITOR="$VISUAL"
 export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
 export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
@@ -32,6 +31,7 @@ zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
 
+eval "$(rbenv init -)"
 
 #============================================
 # Loading...
@@ -109,5 +109,4 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
