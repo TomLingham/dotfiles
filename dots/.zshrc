@@ -40,7 +40,6 @@ eval "$(rbenv init -)"
 # Load Aliases
 [ -s "$HOME/.aliases" ] && source "$HOME/.aliases"
 
-
 # Custom Scripts
 [ -s "$HOME/.custom" ] && source ~/.custom
 
@@ -82,6 +81,7 @@ fpath+=("$HOME/.zfunc")
 autoload -U promptinit; promptinit
 prompt pure
 
+
 #============================================
 # Autocompletions
 #============================================
@@ -115,4 +115,4 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
-
+#

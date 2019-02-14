@@ -35,6 +35,7 @@ casks=(
   iterm2
   marshallofsound-google-play-music-player
   postman
+  slack
   visual-studio-code
 )
 

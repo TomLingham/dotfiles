@@ -3,22 +3,13 @@
 #=============================================
 # Dotfiles
 #=============================================
-dots=(
-  .alacritty.yml
-  .aliases
-  .gitignore
-  .ignore
-  .tmux.conf
-  .zshenv
-  .zshrc
-)
-
-for i in "${dots[@]}"; do
-  [ ! -h "$HOME/$i" ] && ln -s "$HOME/.dotfiles/dots/$i" "$HOME/$i"
+GLOBIGNORE=".:.." && for f in dots/*; do
+  [ ! -h "$f" ] && ln -s "$(pwd)/$f" "$HOME/$i"
 done
 
 touch $HOME/.custom
 source $HOME/.aliases
+
 
 #=============================================
 # Neovim Configuration
@@ -29,15 +20,17 @@ source $HOME/.aliases
 
 
 #=============================================
-# ZSH Setup
+# Directories
 #=============================================
-[ ! -d "$HOME/.zfunc" ] && mkdir $HOME/.zfunc
 
+# Source code
+mkdir -p $HOME/Source
 
-#=============================================
+# ZSH functions
+mkdir -p $HOME/.zfunc
+
 # Random bins
-#=============================================
-[ ! -d "$HOME/.somebin" ] && mkdir $HOME/.somebin
+mkdir -p $HOME/.somebin
 
 
 #=============================================
@@ -51,9 +44,17 @@ sh ./setup/source.sh
 
 
 #=============================================
+# Load terminfo for italics etc. in tmux
+#=============================================
+tic -x xterm-256color-italic.terminfo
+tic -x tmux-256color.terminfo
+
+
+#=============================================
 # Global GIT config and hooks
 #=============================================
 git config --global core.hooksPath $HOME/.dotfiles/git/hooks
+git config --global core.excludesfile $HOME/.gitignore
 
 
 #=============================================
