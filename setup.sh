@@ -44,6 +44,7 @@ source $HOME/.aliases
 # Run Installer Scripts
 #=============================================
 sh ./setup/brew.sh
+sh ./setup/npm.sh
 sh ./setup/pip.sh
 sh ./setup/rust.sh
 sh ./setup/source.sh

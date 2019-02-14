@@ -9,4 +9,4 @@ fi
 rustup completions zsh > ~/.zfunc/_rustup
 
 # Cargo Packages (It should be available now)
-cargo install ripgrep
+# cargo install ripgrep

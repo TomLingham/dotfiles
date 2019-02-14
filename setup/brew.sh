@@ -17,25 +17,31 @@ packages=(
   neovim
   python
   python3
+  rbenv
+  ripgrep
   tmux
   tree
   vim
-  yarn
+  yarn --ignore-dependencies
   zplug
   zsh
 )
 
 # Casks (Grpahical Applications)
 casks=(
+  docker
+  firefox
   google-chrome
   iterm2
+  marshallofsound-google-play-music-player
+  postman
   visual-studio-code
 )
 
 if ! program_exists brew; then
   echo "Homebrew not installed."
   echo "Installing Homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" >/dev/null
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "Homebrew finished installing."
 fi
 

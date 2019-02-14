@@ -3,7 +3,6 @@
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "editor.codeLens": false,
-    "editor.acceptSuggestionOnCommitCharacter": false,
     "explorer.openEditors.visible": 0,
     "eslint.enable": false,
     "flow.enabled": false,
@@ -22,6 +21,7 @@
     "vim.leader": "<space>",
     "vim.useCtrlKeys": true,
     "vim.enableNeovim": true,
+    "vim.neovimPath": "nvim",
     "editor.acceptSuggestionOnCommitCharacter": false,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -31,7 +31,7 @@
             ],
             "commands": [
                 {
-                    "command": "editor.action.formatDocument",
+                    "command": "editor.action.formatDocument"
                 }
             ]
         },
@@ -42,12 +42,11 @@
             ],
             "commands": [
                 {
-                    "command": "docthis.documentThis",
+                    "command": "docthis.documentThis"
                 }
             ]
-        },
+        }
     ],
-    "gitlens.historyExplorer.enabled": true,
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
@@ -97,10 +96,9 @@
         "typescriptreact",
         "yml"
     ],
-    "shellformat.flag": "-i 2"
+    "shellformat.flag": "-i 2",
     "gitlens.mode.active": "zen",
     "[groovy]": {
         "editor.tabSize": 4
     }
   }
-}

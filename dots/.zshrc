@@ -47,6 +47,7 @@ eval "$(rbenv init -)"
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_LIB=$(realpath $NVM_BIN/../lib)
 
 # Load SDK Man
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -87,6 +88,11 @@ prompt pure
 source <(go env)
 source <(npm completion)
 
+# Serverless
+[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
 
 #============================================
 # Theme
@@ -109,4 +115,4 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
-#
+
