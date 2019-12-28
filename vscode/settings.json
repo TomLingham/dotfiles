@@ -15,7 +15,6 @@
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": false,
     "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.visible": true,
     "vim.leader": "<space>",
@@ -58,14 +57,6 @@
         "Jenkinsfile*": "groovy",
         "Dockerfile*": "dockerfile"
     },
-    "vsicons.associations.files": [
-        {
-            "icon": "webpack",
-            "extensions": ["webpack.config.node.ts"],
-            "filename": true,
-            "format": "svg"
-        }
-    ],
     "editor.renderWhitespace": "all",
     "explorer.confirmDragAndDrop": false,
     "cSpell.enabledLanguageIds": [
@@ -94,11 +85,53 @@
         "text",
         "typescript",
         "typescriptreact",
+        "yaml",
         "yml"
     ],
     "shellformat.flag": "-i 2",
     "gitlens.mode.active": "zen",
     "[groovy]": {
         "editor.tabSize": 4
-    }
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "breadcrumbs.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.userWords": [
+        "Architected",
+        "Authorisation",
+        "Kubernetes",
+        "Subnet",
+        "beuracrecies",
+        "centralised",
+        "codegen",
+        "customised",
+        "optimisations",
+        "organisation",
+        "organisational",
+        "organising",
+        "templating",
+        "utilising"
+    ],
+    "terminal.integrated.scrollback": 6000,
+    "cSpell.language": "en-GB"
   }

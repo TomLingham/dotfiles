@@ -37,6 +37,7 @@ casks=(
   postman
   slack
   visual-studio-code
+  keeweb
 )
 
 if ! program_exists brew; then

@@ -45,15 +45,15 @@ eval "$(rbenv init -)"
 
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-export NVM_LIB=$(realpath $NVM_BIN/../lib)
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load SDK Man
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # FZF
-[ -s "$HOME/.fzf.zsh" ] && source $HOME/.fzf.zsh
+[ -s "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
 #============================================
 # Path
@@ -86,12 +86,7 @@ prompt pure
 # Autocompletions
 #============================================
 source <(go env)
-source <(npm completion)
-
-# Serverless
-[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-[[ -f $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . $NVM_LIB/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+#source <(npm completion)
 
 
 #============================================
@@ -116,3 +111,13 @@ source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
 #
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/slss.zsh

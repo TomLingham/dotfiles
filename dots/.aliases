@@ -165,3 +165,10 @@ proxy_all() {
   no_proxy= $@
 }
 
+vdiff() {
+  diff -r \
+    --exclude="node_modules" \
+    --exclude=".git" \
+    --exclude=".DS_Store" \
+    $@
+}
