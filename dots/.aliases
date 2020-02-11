@@ -7,7 +7,7 @@ alias ..='cd ..'
 alias cd..='cd ..'
 alias be='bundle exec'
 alias c='clear'
-alias code='cd ~/Code'
+alias code='cd ~/Work/Code'
 alias d='docker'
 alias dbuild='docker-compose build'
 alias dcomp='docker-compose'
@@ -18,7 +18,6 @@ alias fuck='sudo $(fc -ln -1)'
 alias ll='lm -a'
 alias lm='ls -GlhF --color --group-directories-first'
 alias ls='gls'
-alias notes='cd ~/Notes'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
@@ -127,12 +126,37 @@ archive() {
   mv $1 ~/.CODE_ARCHIVE/$FILENAME
 }
 
-note() {
-  TITLE=$1
-  if [ ! -z "$TITLE" ]; then
-    TITLE="$TITLE-"
+yesterday() {
+  DATE=$(date -v -1d +%F)
+  NOTESDIR="$HOME/Notes/$DATE"
+  FILENAME="$NOTESDIR/notes.md"
+
+  vim $FILENAME
+}
+
+notes() {
+  DATE=$(date +%F)
+  NOTESDIR="$HOME/Notes/$DATE"
+
+  # If there is an argument supplied, then we open a file with that name.
+  if [ ! -z "$1" ]; then
+    FILENAME="$NOTESDIR/$1.md"
+    [ ! -f $FILENAME ] && echo "# $1\n\n" > $FILENAME
+    vim $FILENAME
+    return 0
   fi
-  command code ~/Notes/$TITLE$(date +%Y-%m-%dT%H:%M:%S).md
+
+  # Create the directory for todays notes if it isn't already.
+  [ ! -d $NOTESDIR ] && mkdir -p $NOTESDIR;
+
+  # If we don't provide an argument, open the default notepad.
+  FILENAME="$NOTESDIR/notes.md"
+  if [ ! -f $FILENAME ]; then
+    NICEDATE=$(date "+%A %B %d, %Y")
+    echo "# Notes for $NICEDATE\n\n---\n\n\n---\n\n## TODO\n\n1. \n\n---" > $FILENAME;
+  fi
+
+  vim $FILENAME
 }
 
 #============================================

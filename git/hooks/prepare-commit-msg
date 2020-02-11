@@ -1,6 +1,0 @@
-#!/bin/bash
-shopt -s expand_aliases
-source ~/.aliases
-
-toml-script prepend-ticket $@ `gitb`
-

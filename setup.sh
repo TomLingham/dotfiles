@@ -4,27 +4,30 @@
 # Dotfiles
 #=============================================
 GLOBIGNORE=".:.." && for f in dots/*; do
-  [ ! -h "$f" ] && ln -s "$(pwd)/$f" "$HOME/$i"
+  [ ! -h "$f" ] && ln -s "$(pwd)/$f" "$HOME$i"
 done
 
 touch $HOME/.custom
 source $HOME/.aliases
 
+#=============================================
+# Neovim Configuration Files
+#=============================================
+nvimconfs=(
+  init.vim
+  extras
+)
 
-#=============================================
-# Neovim Configuration
-#=============================================
-[ ! -d "$HOME/.config/nvim" ] && mkdir -p $HOME/.config/nvim
-[ ! -h "$HOME/.config/nvim/init.vim" ] && ln -s $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
-[ ! -h "$HOME/.config/nvim/extras" ] && ln -s $HOME/.dotfiles/config/nvim/extras $HOME/.config/nvim/extras
+mkdir -p $HOME/.config/nvim
+
+for i in "${nvimconfs[@]}"; do
+  ln -sF "$HOME/.dotfiles/config/nvim/${i}" "$HOME/.config/nvim/${i}"
+done
 
 
 #=============================================
 # Directories
 #=============================================
-
-# Source code
-mkdir -p $HOME/Source
 
 # ZSH functions
 mkdir -p $HOME/.zfunc
@@ -40,7 +43,6 @@ sh ./setup/brew.sh
 sh ./setup/npm.sh
 sh ./setup/pip.sh
 sh ./setup/rust.sh
-sh ./setup/source.sh
 
 
 #=============================================

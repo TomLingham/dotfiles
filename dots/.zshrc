@@ -16,7 +16,8 @@ export RUST_SRC_PATH=$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=500
 export SAVEHIST=$HISTSIZE
-
+export http_proxy=localhost:3128
+export https_proxy=localhost:3128
 
 #============================================
 # Vi in CLI Mode
@@ -78,8 +79,7 @@ fpath+=("$HOME/.zfunc")
 #============================================
 # Prompt
 #============================================
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 
 #============================================
@@ -110,14 +110,3 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
-#
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tom/Code/jobish/jobish-api/node_modules/tabtab/.completions/slss.zsh

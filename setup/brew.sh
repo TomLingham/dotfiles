@@ -15,14 +15,13 @@ packages=(
   kubernetes-cli
   mas
   neovim
-  python
   python3
   rbenv
   ripgrep
+  starship
   tmux
   tree
   vim
-  yarn --ignore-dependencies
   zplug
   zsh
 )
@@ -31,13 +30,10 @@ packages=(
 casks=(
   docker
   firefox
-  google-chrome
   iterm2
-  marshallofsound-google-play-music-player
   postman
-  slack
-  visual-studio-code
   keeweb
+  visual-studio-code
 )
 
 if ! program_exists brew; then

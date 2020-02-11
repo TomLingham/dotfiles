@@ -24,6 +24,8 @@ set undolevels=1000
 set undodir=~/.vim/undo//
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
+set spellfile=~/.vim/spell/en.utf-8.add
+
 
 " Allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start
@@ -114,6 +116,8 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 "============================================================
 
 let @i = 'Iciwimportf=xifromf df(i f)xI'
+let @o = '/## TODO/---/€kb?^[0-9]\+\.  oi'
+let @u = 'Go## <title>o---kkl'
 
 "============================================================
 " Leader Key Setup <Space>
@@ -135,6 +139,9 @@ nmap <leader>9 :call <SID>SynStack()<CR>
 nmap <leader>d :JsDoc<CR>
 nmap <leader>q :TernDef<CR>
 nmap <leader>n :e <cfile><cr>
+
+nmap <leader>t @o;
+nmap <leader>l @u;
 
 
 "============================================================

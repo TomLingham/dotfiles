@@ -3,9 +3,7 @@
 source $HOME/.aliases
 
 # Global Packages
-packages=(
-  serverless
-)
+packages=()
 
 for package in "${packages[@]}"; do
   if npm list -g $package > /dev/null; then
