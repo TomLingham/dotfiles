@@ -15,7 +15,7 @@ Plug 'moll/vim-node'
 Plug 'heavenshell/vim-jsdoc'
 
 "----$ TypeScript
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 "----$ ReasonML
 Plug 'reasonml-editor/vim-reason-plus'
@@ -47,7 +47,7 @@ Plug 'tpope/vim-fugitive'
 "----$ Theme & Style
 Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-gotham'
-Plug 'TomLingham/dracula.vim'
+Plug 'dracula/vim'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
@@ -67,7 +67,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
-"Plug 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 
 
@@ -99,7 +99,7 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " Remove pipe character between window splits. The whitespace
 " character after the \ is required!
-set fillchars+=vert:\
+set fillchars+=vert:\ 
 
 " Style JsDocs
 let g:javascript_plugin_jsdoc=1
@@ -115,7 +115,9 @@ let g:javascript_plugin_flow = 1
 
 " Disable annoying markdown folding
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
+set conceallevel=2
+let g:vim_markdown_conceal = 1
+let g:vim_markdown_strikethrough = 1
 
 
 "============================================================

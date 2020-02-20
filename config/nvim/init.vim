@@ -26,7 +26,6 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set spellfile=~/.vim/spell/en.utf-8.add
 
-
 " Allow backspace over line breaks, the start of insert and indents
 set backspace=indent,eol,start
 
@@ -110,14 +109,12 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80
 autocmd BufNewFile,BufRead *.vue set filetype=html
 
-
 "============================================================
 " Macros
 "============================================================
 
 let @i = 'Iciwimportf=xifromf df(i f)xI'
-let @o = '/## TODO/---/€kb?^[0-9]\+\.  oi'
-let @u = 'Go## <title>o---kkl'
+let @u = 'Go## o---kkA'
 
 "============================================================
 " Leader Key Setup <Space>
@@ -128,17 +125,17 @@ nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
 " Leader commands
-nmap <leader>; :tabedit $MYVIMRC<CR>
-nmap <leader>s :sp<CR>
-nmap <leader>v :vsp<CR>
-nmap <leader>p :Explore<CR>
-nmap <leader>gf :e <cfile><CR>
-nmap <leader>' :StripWhitespace<CR>
-nmap <silent> <leader><leader> :nohls<CR>
-nmap <leader>9 :call <SID>SynStack()<CR>
-nmap <leader>d :JsDoc<CR>
-nmap <leader>q :TernDef<CR>
-nmap <leader>n :e <cfile><cr>
+nmap <leader>;  :tabedit $MYVIMRC<CR>
+nmap <leader>s  :sp<CR>
+nmap <leader>v  :vsp<CR>
+nmap <leader>p  :Explore<CR>
+nmap <leader>gf  :e <cfile><CR>
+nmap <leader>'  :StripWhitespace<CR>
+nmap <silent>   <leader><leader> :nohls<CR>
+nmap <leader>9  :call <SID>SynStack()<CR>
+nmap <leader>d  :JsDoc<CR>
+nmap <leader>q  :TernDef<CR>
+nmap <leader>n  :e <cfile><cr>
 
 nmap <leader>t @o;
 nmap <leader>l @u;

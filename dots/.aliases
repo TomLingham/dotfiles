@@ -45,6 +45,7 @@ alias aws-docker-login='$(aws ecr get-login --no-include-email --region ap-south
 alias gita='git add'
 alias gitaa='git add -A'
 alias gitb='git rev-parse --abbrev-ref HEAD'
+alias gitbls='git branch'
 alias gitc='git commit -m'
 alias gitca='git commit --amend'
 alias gitcane='git commit --amend --no-edit'
@@ -130,7 +131,6 @@ yesterday() {
   DATE=$(date -v -1d +%F)
   NOTESDIR="$HOME/Notes/$DATE"
   FILENAME="$NOTESDIR/notes.md"
-
   vim $FILENAME
 }
 
@@ -153,7 +153,7 @@ notes() {
   FILENAME="$NOTESDIR/notes.md"
   if [ ! -f $FILENAME ]; then
     NICEDATE=$(date "+%A %B %d, %Y")
-    echo "# Notes for $NICEDATE\n\n---\n\n\n---\n\n## TODO\n\n1. \n\n---" > $FILENAME;
+    echo "# Notes for $NICEDATE\n\n\n---\n\n## TODO\n\n1. \n\n---" > $FILENAME;
   fi
 
   vim $FILENAME

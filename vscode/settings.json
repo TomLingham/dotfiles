@@ -1,6 +1,5 @@
 {
-    "http.proxyStrctSSL": false,
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "http.proxyStrictSSL": false,
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "editor.codeLens": false,
@@ -89,7 +88,6 @@
         "yaml",
         "yml"
     ],
-    "shellformat.flag": "-i 2",
     "gitlens.mode.active": "zen",
     "[groovy]": {
         "editor.tabSize": 4
@@ -135,5 +133,7 @@
     ],
     "terminal.integrated.scrollback": 6000,
     "cSpell.language": "en-GB",
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "editor.fontFamily": "'Fira Mono for Powerline', Monaco, 'Courier New', monospace"
   }

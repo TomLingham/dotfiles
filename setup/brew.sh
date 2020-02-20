@@ -24,6 +24,7 @@ packages=(
   vim
   zplug
   zsh
+  zsh-autosuggestions
 )
 
 # Casks (Grpahical Applications)

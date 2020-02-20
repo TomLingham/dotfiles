@@ -11,7 +11,7 @@ export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
 export VISUAL=nvim
 export SOURCE_DIR=$HOME/Source
 export ZPLUG_HOME=/usr/local/opt/zplug
-export RUST_SRC_PATH=$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=500
@@ -55,6 +55,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # FZF
 [ -s "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+
+# zsh-autosuggest
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #============================================
 # Path
@@ -110,3 +113,5 @@ export TMUX_COLOR_HIGHLIGHT_IDLE_FG='#555555'
 source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
