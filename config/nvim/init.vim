@@ -31,15 +31,19 @@ set backspace=indent,eol,start
 
 " Set netrw style to branch
 let g:netrw_liststyle=3
+let g:netrw_preview=1
+let g:netrw_alto=0
+let g:netrw_winsize=16
+let g:netrw_browse_split=4
+
+" Hide dotfiles and more in netrw
+let g:netrw_list_hide='.*\.DS_Store$,.*\.tern-port$'
 
 " Show line Numbers
 set nu
 
 " Set paste toggle shortcut
 set pastetoggle=<F10>
-
-" Hide dotfiles and more in netrw
-let g:netrw_list_hide='.*\.DS_Store$,.*\.tern-port$'
 
 " NetRw leaves buffers open which I personally find very annoying
 autocmd FileType netrw setl bufhidden=delete
