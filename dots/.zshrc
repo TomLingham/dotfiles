@@ -1,6 +1,7 @@
 #============================================
 # ENV Settings
 #============================================
+export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
 export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
@@ -9,12 +10,12 @@ export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=500
 export LC_ALL="en_US.UTF-8"
 export LS_COLORS='di=00;33:ow=01;32:*.js=00;36'
-export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export SAVEHIST=$HISTSIZE
 export SOURCE_DIR=$HOME/Source
 export VISUAL=nvim
 export ZPLUG_HOME=/usr/local/opt/zplug
+export GOPATH="$HOME/go"
 
 #============================================
 # Vi in CLI Mode

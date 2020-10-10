@@ -1,8 +1,11 @@
 {
     "http.proxyStrictSSL": false,
+    "http.proxy": "http://localhost:3128",
     "editor.fontSize": 13,
     "editor.tabSize": 2,
     "editor.codeLens": false,
+    "editor.fontFamily": "'Fira Mono for Powerline', Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
     "explorer.openEditors.visible": 0,
     "eslint.enable": false,
     "flow.enabled": false,
@@ -49,9 +52,6 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
-    "[makefile]": {
-        "editor.insertSpaces": false
-    },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "files.associations": {
         "Jenkinsfile*": "groovy",
@@ -59,7 +59,7 @@
     },
     "editor.renderWhitespace": "all",
     "explorer.confirmDragAndDrop": false,
-    "cSpell.enabledLanguageIds": [
+    "cSpell.enableFiletypes": [
         "asciidoc",
         "c",
         "cpp",
@@ -89,6 +89,11 @@
         "yml"
     ],
     "gitlens.mode.active": "zen",
+    "breadcrumbs.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "[makefile]": {
+        "editor.insertSpaces": false
+    },
     "[groovy]": {
         "editor.tabSize": 4
     },
@@ -101,8 +106,6 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "breadcrumbs.enabled": false,
-    "workbench.iconTheme": "vscode-icons",
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -117,23 +120,19 @@
     },
     "cSpell.userWords": [
         "Architected",
-        "Authorisation",
         "Kubernetes",
         "Subnet",
-        "beuracrecies",
-        "centralised",
         "codegen",
-        "customised",
-        "optimisations",
-        "organisation",
-        "organisational",
-        "organising",
+        "loglevel",
+        "screenshot",
         "templating",
-        "utilising"
+        "versioned"
     ],
     "terminal.integrated.scrollback": 6000,
     "cSpell.language": "en-GB",
     "vsicons.dontShowNewVersionMessage": true,
     "terminal.integrated.shell.osx": "/bin/zsh",
-    "editor.fontFamily": "'Fira Mono for Powerline', Monaco, 'Courier New', monospace"
-  }
+    "plantuml.server": "http://localhost:8080",
+    "plantuml.render": "PlantUMLServer",
+    "explorer.compactFolders": false,
+}

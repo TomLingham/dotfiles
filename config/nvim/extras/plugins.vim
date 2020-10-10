@@ -66,10 +66,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
-
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -124,7 +124,7 @@ let g:vim_markdown_strikethrough = 1
 " Deoplete
 "============================================================
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#custom#var = 1
 let g:tern_request_timeout = 2
 let g:tern_show_signature_in_pum = '0'
 let g:tern#filetypes = [
@@ -155,6 +155,15 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
+
+let g:ale_fixers={
+	\'css': ['prettier'],
+	\'javascript': ['prettier'],
+	\'json': ['prettier'],
+	\'markdown': ['prettier'],
+	\'scss': ['prettier'],
+	\'typescript': ['prettier']
+\}
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))

@@ -1,14 +1,20 @@
 #!/bin/zsh
 
 #============================================
+# Variables
+#============================================
+export CODE_DIR=$HOME/Code
+export NOTES_DIR=$HOME/Notes
+
+#============================================
 # General
 #============================================
 alias ..='cd ..'
 alias cd..='cd ..'
 alias be='bundle exec'
 alias c='clear'
-alias code='cd ~/Code'
-alias notes='cd ~/Notes'
+alias code='cd $CODE_DIR'
+alias notes='cd $NOTES_DIR'
 alias d='docker'
 alias dbuild='docker-compose build'
 alias dcomp='docker-compose'
@@ -49,7 +55,6 @@ alias gitb='git rev-parse --abbrev-ref HEAD'
 alias gitbls='git branch'
 alias gitc='git commit -m'
 alias gitca='git commit --amend'
-alias gitcane='git commit --amend --no-edit'
 alias gitcb='git checkout -b'
 alias gitct='git checkout-ticket'
 alias gitd='git diff'
@@ -74,9 +79,10 @@ alias gitfa='git fetch --all'
 
 docker() {
   if [[ $1 == "buildx" ]]; then
+    docker_proxy=http://host.docker.internal:3128
     command docker build \
-      --build-arg http_proxy=${http_proxy} \
-      --build-arg https_proxy=${http_proxy} \
+      --build-arg http_proxy=${docker_proxy} \
+      --build-arg https_proxy=${docker_proxy} \
       --build-arg no_proxy=${no_proxy} \
       "${@:2}"
   elif [[ $1 == "kill-all" ]]; then
@@ -124,8 +130,8 @@ vs() {
 }
 
 archive() {
-  FILENAME=$(date +"%FT%H%M%z")-$1
-  mv $1 ~/.CODE_ARCHIVE/$FILENAME
+  FILENAME=$(date +"%FT%H%M")-$(basename $1)
+  mv $1 ~/.ARCHIVE/$FILENAME
 }
 
 yesterday() {
@@ -176,7 +182,7 @@ toml_script() {
 }
 
 without_proxy() {
-  http_proxy= https_proxy= all_proxy= no_proxy= $@
+  HTTP_PROXY= HTTPS_PROXY= ALL_PROXY= NO_PROXY= http_proxy= https_proxy= all_proxy= no_proxy= $@
 }
 
 clear_proxy() {
@@ -190,10 +196,21 @@ proxy_all() {
   no_proxy= $@
 }
 
+playground() {
+  PG_DIR=$CODE_DIR/.playground
+  archive $PG_DIR
+  mkdir -p $PG_DIR
+  cd $PG_DIR
+}
+
 vdiff() {
   diff -r \
     --exclude="node_modules" \
     --exclude=".git" \
     --exclude=".DS_Store" \
-    $@
+   $@
+}
+
+dumpcerts() {
+  openssl s_client -showcerts -verify 5 -connect $1 < /dev/null | awk '/BEGIN/,/END/{ if(/BEGIN/){a++}; out="cert"a".crt"; print >out}' && for cert in *.crt; do newname=$(openssl x509 -noout -subject -in $cert | sed -n 's/^.*CN=\(.*\)$/\1/; s/[ ,.*]/_/g; s/__/_/g; s/^_//g;p').pem; mv $cert $newname; done
 }

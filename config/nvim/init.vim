@@ -30,14 +30,25 @@ set spellfile=~/.vim/spell/en.utf-8.add
 set backspace=indent,eol,start
 
 " Set netrw style to branch
-let g:netrw_liststyle=3
-let g:netrw_preview=1
-let g:netrw_alto=0
-let g:netrw_winsize=16
-let g:netrw_browse_split=4
+"let g:netrw_liststyle=3
+"let g:netrw_preview=1
+"let g:netrw_alto=0
+"let g:netrw_winsize=16
+"let g:netrw_browse_split=4
+"let g:netrw_chgwin = winnr()
 
 " Hide dotfiles and more in netrw
-let g:netrw_list_hide='.*\.DS_Store$,.*\.tern-port$'
+"let g:netrw_list_hide='.*\.DS_Store$,.*\.tern-port$'
+"
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
 
 " Show line Numbers
 set nu
@@ -87,6 +98,7 @@ set expandtab
 " indentation based on filetype
 autocmd Filetype groovy setlocal ts=2 sw=2 expandtab
 autocmd Filetype php setlocal ts=4 sw=4 expandtab
+autocmd Filetype go setlocal ts=4 sw=4 noexpandtab
 
 " Prevent vim from using save features because it screws with file watchers
 set backupcopy=yes
@@ -132,14 +144,15 @@ let mapleader="\<Space>"
 nmap <leader>;  :tabedit $MYVIMRC<CR>
 nmap <leader>s  :sp<CR>
 nmap <leader>v  :vsp<CR>
-nmap <leader>p  :Explore<CR>
+nmap <leader>p  :NERDTreeToggle<CR>
 nmap <leader>gf  :e <cfile><CR>
 nmap <leader>'  :StripWhitespace<CR>
 nmap <silent>   <leader><leader> :nohls<CR>
 nmap <leader>9  :call <SID>SynStack()<CR>
 nmap <leader>d  :JsDoc<CR>
 nmap <leader>q  :TernDef<CR>
-nmap <leader>n  :e <cfile><cr>
+nmap <leader>n  :e <cfile><CR>
+nmap <leader>f  :ALEFix<CR>
 
 nmap <leader>t @o;
 nmap <leader>l @u;
