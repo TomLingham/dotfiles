@@ -59,6 +59,9 @@ tic -x tmux-256color.terminfo
 git config --global core.hooksPath $HOME/.dotfiles/git/hooks
 git config --global core.excludesfile $HOME/.gitignore
 
+git config --global alias.cane 'commit --amend --no-edit'
+git config --global alias.unstage 'reset HEAD --'
+
 
 #=============================================
 # Install Vim Plug
