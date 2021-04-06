@@ -2,6 +2,7 @@
 " General Settings
 "============================================================
 
+" Set the default shell to zsh
 set shell=zsh
 
 " Neovim support true colors
@@ -15,6 +16,10 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax enable
+
+" Python Hosts
+let g:python2_host_prog='/usr/local/bin/python'
+let g:python3_host_prog='/usr/local/bin/python3'
 
 " Super OP undo
 set undofile
@@ -117,7 +122,10 @@ autocmd BufNewFile,BufRead *.vue set filetype=html
 " Macros
 "============================================================
 
+" Convert require statement to import
 let @i = 'Iciwimportf=xifromf df(i f)xI'
+
+
 let @u = 'Go## o---kkA'
 
 "============================================================
@@ -144,6 +152,7 @@ nmap <leader>n  :e <cfile><cr>
 nmap <leader>t @o;
 nmap <leader>l @u;
 
+autocmd FileType javascript,typescript nmap <leader>i @i
 
 "============================================================
 " Commands

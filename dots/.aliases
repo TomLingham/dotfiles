@@ -124,40 +124,46 @@ vs() {
 }
 
 archive() {
-  FILENAME=$(date +"%FT%H%M%z")-$1
-  mv $1 ~/.CODE_ARCHIVE/$FILENAME
+  [ ! -f $1 ] && [ ! -d $1 ] && echo "File \"$1\" doesn't exist. Unable to archive." && return
+  echo "Archiving \"$1\""
+  DATE="$(date +%F)"
+  FUZZ="$(jot -r 1  100000 999999)"
+  FILENAME="$(basename $1)-$DATE-$FUZZ"
+  NEWPATH="~/.ARCHIVE/$FILENAME"
+  mv "$1" "$NEWPATH"
+  echo "Archived to $NEWPATH"
 }
 
 yesterday() {
   DATE=$(date -v -1d +%F)
   NOTESDIR="$HOME/Notes/$DATE"
   FILENAME="$NOTESDIR/notes.md"
-  vim $FILENAME
+  vim "$FILENAME"
 }
 
 notepad() {
-  DATE=$(date +%F)
+  DATE="$(date +%F)"
   NOTESDIR="$HOME/Notes/$DATE"
 
   # Create the directory for todays notes if it isn't already.
-  [ ! -d $NOTESDIR ] && mkdir -p $NOTESDIR;
+  [ ! -d "$NOTESDIR" ] && mkdir -p "$NOTESDIR";
 
   # If there is an argument supplied, then we open a file with that name.
   if [ ! -z "$1" ]; then
     FILENAME="$NOTESDIR/$1.md"
-    [ ! -f $FILENAME ] && echo "# $1\n\n" > $FILENAME
-    vim $FILENAME
+    [ ! -f "$FILENAME" ] && echo "# $1\n\n" > "$FILENAME"
+    vim "$FILENAME"
     return 0
   fi
 
   # If we don't provide an argument, open the default notepad.
   FILENAME="$NOTESDIR/notes.md"
-  if [ ! -f $FILENAME ]; then
-    NICEDATE=$(date "+%A %B %d, %Y")
+  if [ ! -f "$FILENAME" ]; then
+    NICEDATE="$(date "+%A %B %d, %Y")"
     echo "# Notes for $NICEDATE\n\n---\n\n## TODO\n\n1. \n\n---" > $FILENAME;
   fi
 
-  vim $FILENAME
+  vim "$FILENAME"
 }
 
 #============================================
@@ -167,12 +173,6 @@ notepad() {
 # Check if a program exists
 program_exists() {
   command -v "$1" >/dev/null 2>&1 ;
-}
-
-# Run a node script in my scripts folder
-# fpath=( $HOME/.dotfiles/completions fpath )
-toml_script() {
-  node -r $HOME/.dotfiles/scripts/src/global.js $HOME/.dotfiles/scripts/src/$@
 }
 
 without_proxy() {
@@ -196,4 +196,12 @@ vdiff() {
     --exclude=".git" \
     --exclude=".DS_Store" \
     $@
+}
+
+playground() {
+  echo "Preparing Workspace. Deleting previous playground..."
+  sleep 3
+  archive ~/Code/.playground > /dev/null
+  mkdir ~/Code/.playground
+  cd ~/Code/.playground
 }

@@ -1,139 +1,111 @@
 {
-    "http.proxyStrictSSL": false,
-    "editor.fontSize": 13,
-    "editor.tabSize": 2,
-    "editor.codeLens": false,
-    "explorer.openEditors.visible": 0,
-    "eslint.enable": false,
-    "flow.enabled": false,
-    "flow.stopFlowOnExit": true,
-    "flow.useNPMPackagedFlow": true,
-    "javascript.validate.enable": false,
-    "prettier.requireConfig": true,
-    "reason.codelens.enabled": false,
-    "search.useIgnoreFiles": true,
-    "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
-    "workbench.colorTheme": "Dracula",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true,
-    "vim.leader": "<space>",
-    "vim.useCtrlKeys": true,
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "/usr/local/bin/nvim",
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "vim.normalModeKeyBindingsNonRecursive": [
+  "[groovy]": {
+    "editor.tabSize": 4
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[makefile]": {
+    "editor.insertSpaces": false
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "breadcrumbs.enabled": true,
+  "cSpell.language": "en-GB",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.codeLens": false,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "Dockerfile*": "dockerfile",
+    "Jenkinsfile*": "groovy"
+  },
+  "flow.enabled": false,
+  "flow.stopFlowOnExit": true,
+  "flow.useNPMPackagedFlow": true,
+  "gitlens.mode.active": "zen",
+  "http.proxyStrictSSL": false,
+  "javascript.validate.enable": false,
+  "prettier.requireConfig": true,
+  "reason.codelens.enabled": false,
+  "search.useIgnoreFiles": true,
+  "terminal.integrated.scrollback": 6000,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.enableNeovim": true,
+  "vim.leader": "<space>",
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
         {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "commands": [
-                {
-                    "command": "editor.action.formatDocument"
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d"
-            ],
-            "commands": [
-                {
-                    "command": "docthis.documentThis"
-                }
-            ]
+          "command": "editor.action.formatDocument"
         }
-    ],
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
+      ]
     },
-    "[makefile]": {
-        "editor.insertSpaces": false
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.rename"
+        }
+      ]
     },
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "files.associations": {
-        "Jenkinsfile*": "groovy",
-        "Dockerfile*": "dockerfile"
-    },
-    "editor.renderWhitespace": "all",
-    "explorer.confirmDragAndDrop": false,
-    "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "go",
-        "handlebars",
-        "html",
-        "jade",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "pub",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-        "yml"
-    ],
-    "gitlens.mode.active": "zen",
-    "[groovy]": {
-        "editor.tabSize": 4
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "breadcrumbs.enabled": false,
-    "workbench.iconTheme": "vscode-icons",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "cSpell.userWords": [
-        "Architected",
-        "Authorisation",
-        "Kubernetes",
-        "Subnet",
-        "beuracrecies",
-        "centralised",
-        "codegen",
-        "customised",
-        "optimisations",
-        "organisation",
-        "organisational",
-        "organising",
-        "templating",
-        "utilising"
-    ],
-    "terminal.integrated.scrollback": 6000,
-    "cSpell.language": "en-GB",
-    "vsicons.dontShowNewVersionMessage": true,
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "editor.fontFamily": "'Fira Mono for Powerline', Monaco, 'Courier New', monospace"
-  }
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        {
+          "command": "docthis.documentThis"
+        }
+      ]
+    }
+  ],
+  "vim.useCtrlKeys": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true
+}

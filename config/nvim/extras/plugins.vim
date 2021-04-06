@@ -17,13 +17,6 @@ Plug 'heavenshell/vim-jsdoc'
 "----$ TypeScript
 Plug 'HerringtonDarkholme/yats.vim'
 
-"----$ ReasonML
-Plug 'reasonml-editor/vim-reason-plus'
-
-"----$ FlowJS
-Plug 'flowtype/vim-flow'
-Plug 'wokalski/autocomplete-flow'
-
 "----$ Groovy
 Plug 'modille/groovy.vim'
 
@@ -110,9 +103,6 @@ let javascript_enable_domhtmlcss=1
 " JSX syntax highlighting and indentation for JS files
 let g:jsx_ext_required=0
 
-" Enable flow by default
-let g:javascript_plugin_flow = 1
-
 " Disable annoying markdown folding
 let g:vim_markdown_folding_disabled = 1
 set conceallevel=2
@@ -123,8 +113,8 @@ let g:vim_markdown_strikethrough = 1
 "============================================================
 " Deoplete
 "============================================================
+call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
 let g:tern_request_timeout = 2
 let g:tern_show_signature_in_pum = '0'
 let g:tern#filetypes = [
@@ -193,12 +183,6 @@ if node_modules != ''
 else
   let node_bin = system('npm bin -g')
 endif
-
-"==========================================================o=
-" Node - Flow
-"============================================================
-let g:flow#enable = 0
-let g:flow#flowpath = node_bin . 'flow'
 
 
 "==========================================================o=

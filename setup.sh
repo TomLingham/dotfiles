@@ -3,8 +3,9 @@
 #=============================================
 # Dotfiles
 #=============================================
-GLOBIGNORE=".:.." && for f in dots/*; do
-  [ ! -h "$f" ] && ln -s "$(pwd)/$f" "$HOME$i"
+dotfiles="$(ls -aA dots)"
+GLOBIGNORE=".:.." && for dot in dotfiles; do
+  [ ! -d "$f" ] && ln -s "$(pwd)/$dot" "$HOME/$dot"
 done
 
 touch $HOME/.custom

@@ -2,16 +2,15 @@
 
 source $HOME/.aliases
 
-# Taps (Repositories)
 taps=(
-  neovim/neovim
+  homebrew/cask-fonts
 )
 
-# Packages (CLI/Binaries)
 packages=(
   coreutils
   git
   go
+  jq
   kubernetes-cli
   mas
   neovim
@@ -27,20 +26,22 @@ packages=(
   zsh-autosuggestions
 )
 
-# Casks (Grpahical Applications)
 casks=(
   docker
   firefox
+  font-hack-nerd-font
   iterm2
-  postman
   keeweb
+  monitorcontrol
+  postman
+  rectangle
   visual-studio-code
 )
 
 if ! program_exists brew; then
   echo "Homebrew not installed."
   echo "Installing Homebrew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "Homebrew finished installing."
 fi
 
@@ -57,9 +58,9 @@ for package in "${packages[@]}"; do
 done
 
 for cask in "${casks[@]}"; do
-  if brew cask ls --versions $cask >/dev/null; then
+  if brew ls --versions --cask $cask >/dev/null; then
     echo "[homebrew:cask] $cask is already installed"
   else
-    brew cask install $cask
+    brew install --cask $cask
   fi
 done

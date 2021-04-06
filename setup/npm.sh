@@ -3,7 +3,10 @@
 source $HOME/.aliases
 
 # Global Packages
-packages=()
+packages=(
+  npm-check-updates
+  yarn
+)
 
 for package in "${packages[@]}"; do
   if npm list -g $package > /dev/null; then

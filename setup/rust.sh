@@ -8,6 +8,3 @@ fi
 
 rustup completions zsh > ~/.zfunc/_rustup
 rustup component add rls rust-analysis rust-src
-
-# Cargo Packages (It should be available now)
-# cargo install ripgrep
