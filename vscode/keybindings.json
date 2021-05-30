@@ -22,5 +22,9 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+shift+0",
+    "command": "workbench.action.zoomReset"
   }
 ]

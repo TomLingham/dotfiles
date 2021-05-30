@@ -1,0 +1,8 @@
+[custom.toml]
+command = "echo 💪"
+when = "[[ $(pwd) = ~/Code/toml* ]]"
+
+[custom.work]
+command = "echo 🦆"
+when = "[[ $(pwd) = ~/Code/work* ]]"
+

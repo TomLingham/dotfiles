@@ -7,7 +7,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 # Load NVM (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # Load SDK Man
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -48,3 +48,5 @@ bindkey '^x^e' edit-command-line
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

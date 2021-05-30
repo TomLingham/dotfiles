@@ -4,16 +4,19 @@ source $HOME/.aliases
 
 taps=(
   homebrew/cask-fonts
+  federico-terzi/espanso
 )
 
 packages=(
   coreutils
+  espanso
   git
   go
   jq
   kubernetes-cli
   mas
   neovim
+  pdfgrep
   python3
   rbenv
   ripgrep
@@ -21,18 +24,24 @@ packages=(
   tmux
   tree
   vim
+  yq
   zplug
   zsh
   zsh-autosuggestions
 )
 
 casks=(
+  beekeeper-studio
   docker
   firefox
-  font-hack-nerd-font
+  font-fira-code-nerd-font
+  gpg-suite-no-mail
+  intellij-idea
   iterm2
   keeweb
+  miro
   monitorcontrol
+  obsidian
   postman
   rectangle
   visual-studio-code

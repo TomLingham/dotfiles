@@ -7,8 +7,6 @@ alias ..='cd ..'
 alias cd..='cd ..'
 alias be='bundle exec'
 alias c='clear'
-alias code='cd ~/Code'
-alias notes='cd ~/Notes'
 alias d='docker'
 alias dbuild='docker-compose build'
 alias dcomp='docker-compose'
@@ -19,6 +17,7 @@ alias fuck='sudo $(fc -ln -1)'
 alias ll='lm -a'
 alias lm='ls -GlhF --color --group-directories-first'
 alias ls='gls'
+alias nix-shell='nix-shell --run zsh'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
@@ -28,11 +27,17 @@ alias tml='tmux new-session -s Tomdizzle1'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
 alias tmr='tmux attach -t Tomdizzle2 || tmux new-session -t Tomdizzle1 -s Tomdizzle2'
 alias tmux='tmux -u -2'
-alias toml-script='toml_script'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 
+#============================================
+# "Speed-dial"
+#============================================
+
+alias code='cd ~/Code'
+alias work='cd ~/Code/work'
+alias toml='cd ~/Code/toml'
 
 #============================================
 # AWS
@@ -46,12 +51,10 @@ alias aws-docker-login='$(aws ecr get-login --no-include-email --region ap-south
 alias gita='git add'
 alias gitaa='git add -A'
 alias gitb='git rev-parse --abbrev-ref HEAD'
-alias gitbls='git branch'
+alias gitls='git branch'
 alias gitc='git commit -m'
 alias gitca='git commit --amend'
-alias gitcane='git commit --amend --no-edit'
 alias gitcb='git checkout -b'
-alias gitct='git checkout-ticket'
 alias gitd='git diff'
 alias gitdw='git diff -w'
 alias gitl1='git lg1'
@@ -69,7 +72,7 @@ alias gitfa='git fetch --all'
 
 
 #============================================
-# CLI Augmentations
+# CLI Augmentation
 #============================================
 
 docker() {
@@ -88,35 +91,8 @@ docker() {
   fi
 }
 
-git() {
-  if [[ $1 == "clonem" ]]; then
-    command git clone "${GIT_BASE_PATH}/$2.git"
-  elif [[ $1 == "checkout-ticket" ]]; then
-    command git checkout -b `toml-script create-jira-branch-name $2`
-  elif [[ $1 == "show-conflicts" ]]; then
-    command git diff --name-only --diff-filter=U
-  elif [[ $1 == "checkout-please" ]]; then
-    git stash
-    git checkout $2
-    git pull --rebase
-    git stash apply
-  else
-    command git $@
-  fi
-}
-
-gitro() {
-  BRANCH=$1
-  if [ ! -z "$BRANCH" ]; then
-    BRANCH="master"
-  fi
-  git stash
-  gitpl origin $BRANCH
-  git stash apply
-}
-
-tdaa() {
-  tda "$*"
+jira() {
+  open "https://arlive.atlassian.net/browse/${1}"
 }
 
 vs() {
@@ -132,38 +108,6 @@ archive() {
   NEWPATH="~/.ARCHIVE/$FILENAME"
   mv "$1" "$NEWPATH"
   echo "Archived to $NEWPATH"
-}
-
-yesterday() {
-  DATE=$(date -v -1d +%F)
-  NOTESDIR="$HOME/Notes/$DATE"
-  FILENAME="$NOTESDIR/notes.md"
-  vim "$FILENAME"
-}
-
-notepad() {
-  DATE="$(date +%F)"
-  NOTESDIR="$HOME/Notes/$DATE"
-
-  # Create the directory for todays notes if it isn't already.
-  [ ! -d "$NOTESDIR" ] && mkdir -p "$NOTESDIR";
-
-  # If there is an argument supplied, then we open a file with that name.
-  if [ ! -z "$1" ]; then
-    FILENAME="$NOTESDIR/$1.md"
-    [ ! -f "$FILENAME" ] && echo "# $1\n\n" > "$FILENAME"
-    vim "$FILENAME"
-    return 0
-  fi
-
-  # If we don't provide an argument, open the default notepad.
-  FILENAME="$NOTESDIR/notes.md"
-  if [ ! -f "$FILENAME" ]; then
-    NICEDATE="$(date "+%A %B %d, %Y")"
-    echo "# Notes for $NICEDATE\n\n---\n\n## TODO\n\n1. \n\n---" > $FILENAME;
-  fi
-
-  vim "$FILENAME"
 }
 
 #============================================

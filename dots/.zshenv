@@ -37,6 +37,7 @@ path=("/usr/local/opt/python/libexec/bin", $path)
 
 # Cargo
 path+=("$HOME/.cargo/bin")
+source "$HOME/.cargo/env"
 
 # Golang
 path+=("$GOPATH/bin")
@@ -49,6 +50,13 @@ path+=("$HOME/.somebin")
 # FPath
 #============================================
 fpath+=("$HOME/.zfunc")
+
+
+#============================================
+# NIX
+#============================================
+
+[ -s "$HOME/.nix-profile/etc/profile.d/nix.sh" ] && source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
 
 #============================================
