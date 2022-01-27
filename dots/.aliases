@@ -21,7 +21,7 @@ alias nix-shell='nix-shell --run zsh'
 alias ovim='/usr/local/bin/vim'
 alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
-alias src='source ~/.zshrc'
+alias src='source ~/.zshenv'
 alias ssh='TERM=xterm-256color ssh'
 alias tml='tmux new-session -s Tomdizzle1'
 alias tmn='tmux attach || tmux -u new -s Tomdizzle'
@@ -36,8 +36,9 @@ alias vim='nvim'
 #============================================
 
 alias code='cd ~/Code'
-alias work='cd ~/Code/work'
+alias notes='cd ~/Documents/ObsidianNotes/Tom/'
 alias toml='cd ~/Code/toml'
+alias work='cd ~/Code/work'
 
 #============================================
 # AWS
@@ -148,4 +149,8 @@ playground() {
   archive ~/Code/.playground > /dev/null
   mkdir ~/Code/.playground
   cd ~/Code/.playground
+}
+
+wp() {
+  lsof -i tcp:$1
 }

@@ -10,6 +10,7 @@ taps=(
 packages=(
   coreutils
   espanso
+  flutter
   git
   go
   jq
@@ -31,6 +32,7 @@ packages=(
 )
 
 casks=(
+  android-studio
   beekeeper-studio
   docker
   firefox

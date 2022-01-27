@@ -2,6 +2,7 @@
 # ENV Settings
 #============================================
 export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
+
 export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 export EDITOR="$VISUAL"
 export FZF_DEFAULT_COMMAND="$RG_COMMAND --files"
@@ -14,7 +15,6 @@ export SAVEHIST="$HISTSIZE"
 export SOURCE_DIR="$HOME/Source"
 export VISUAL="nvim"
 export ZPLUG_HOME="/usr/local/opt/zplug"
-
 
 
 #============================================
@@ -41,6 +41,9 @@ source "$HOME/.cargo/env"
 
 # Golang
 path+=("$GOPATH/bin")
+
+# Android SDKs
+path+=("$HOME/Library/Android/sdk/platform-tools")
 
 # Random Bins
 path+=("$HOME/.somebin")

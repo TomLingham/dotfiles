@@ -10,22 +10,22 @@
 secure_input_notification: false
 matches:
   # Simple text replacement
-  - trigger: ":jira-invfin"
+  - trigger: ":jira"
     replace: "https://arlive.atlassian.net/browse/INVFIN-"
 
   # Dates
-  - trigger: ":date"
+  - trigger: ":date:"
     replace: "{{isodate}}"
     vars:
       - name: isodate
         type: date
         params:
-          format: "%d-%m-%Y"
+          format: "%Y-%m-%d"
 
-  - trigger: ":datetime"
+  - trigger: ":datetime:"
     replace: "{{isodatetime}}"
     vars:
       - name: isodatetime
         type: date
         params:
-          format: "%d-%m-%YT%H:%M:%s"
+          format: "%Y-%m-%dT%H:%M:%S"

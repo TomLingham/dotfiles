@@ -29,6 +29,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.rulers": [80],
   "breadcrumbs.enabled": true,
   "cSpell.language": "en-GB",
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -38,10 +39,7 @@
   "editor.fontSize": 13,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
-  "eslint.validate": [
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["typescript", "typescriptreact"],
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
@@ -50,7 +48,6 @@
     "Dockerfile*": "dockerfile",
     "Jenkinsfile*": "groovy"
   },
-  "gitlens.mode.active": "zen",
   "http.proxyStrictSSL": false,
   "javascript.validate.enable": false,
   "plantuml.render": "PlantUMLServer",
@@ -65,10 +62,7 @@
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
+      "before": ["<leader>", "f"],
       "commands": [
         {
           "command": "editor.action.formatDocument"
@@ -76,10 +70,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "r"
-      ],
+      "before": ["<leader>", "r"],
       "commands": [
         {
           "command": "editor.action.rename"
@@ -87,10 +78,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "d"
-      ],
+      "before": ["<leader>", "d"],
       "commands": [
         {
           "command": "docthis.documentThis"
@@ -104,5 +92,17 @@
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true
+  "workbench.statusBar.visible": true,
+  "editor.accessibilitySupport": "off",
+  "jest.autoRun": "off",
+  "redhat.telemetry.enabled": false,
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "cSpell.userWords": [
+    "Kubernetes",
+    "Myob",
+    "reqwest"
+  ],
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "rust-analyzer.inlayHints.enable": false
 }

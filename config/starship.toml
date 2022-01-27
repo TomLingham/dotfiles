@@ -1,3 +1,15 @@
+[aws.region_aliases]
+ap-southeast-2 = "au"
+
+[nodejs]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[lua]
+disabled = true
+
 [custom.toml]
 command = "echo 💪"
 when = "[[ $(pwd) = ~/Code/toml* ]]"
@@ -5,4 +17,3 @@ when = "[[ $(pwd) = ~/Code/toml* ]]"
 [custom.work]
 command = "echo 🦆"
 when = "[[ $(pwd) = ~/Code/work* ]]"
-
