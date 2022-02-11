@@ -5,21 +5,13 @@
 #============================================
 alias ..='cd ..'
 alias cd..='cd ..'
-alias be='bundle exec'
 alias c='clear'
-alias d='docker'
-alias dbuild='docker-compose build'
-alias dcomp='docker-compose'
-alias ddown='docker-compose down'
 alias dots='cd ~/.dotfiles'
-alias dup='docker-compose up --remove-orphans'
-alias fuck='sudo $(fc -ln -1)'
 alias ll='lm -a'
 alias lm='ls -GlhF --color --group-directories-first'
 alias ls='gls'
 alias nix-shell='nix-shell --run zsh'
 alias ovim='/usr/local/bin/vim'
-alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
 alias src='source ~/.zshenv'
 alias ssh='TERM=xterm-256color ssh'
@@ -30,6 +22,7 @@ alias tmux='tmux -u -2'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
+
 
 #============================================
 # "Speed-dial"

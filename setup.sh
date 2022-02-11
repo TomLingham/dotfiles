@@ -60,9 +60,6 @@ echo "Installing dependencies and packages..."
 echo "> HomeBrew"
 bash ./setup/brew.sh
 
-echo "> NPM"
-bash ./setup/npm.sh
-
 echo "> Rust"
 bash ./setup/rust.sh
 

@@ -104,5 +104,6 @@
     "reqwest"
   ],
   "typescript.preferences.importModuleSpecifier": "relative",
-  "rust-analyzer.inlayHints.enable": false
+  "rust-analyzer.inlayHints.enable": false,
+  "window.zoomLevel": 1
 }

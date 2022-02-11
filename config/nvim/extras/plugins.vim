@@ -55,7 +55,7 @@ Plug 'plasticboy/vim-markdown'
 "----$ ...
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'fatih/vim-nginx'
-Plug 'jiangmiao/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
