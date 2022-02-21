@@ -2,8 +2,6 @@
 
 source $HOME/.aliases
 
-pushd `dirname "$0"`
-
 if ! program_exists brew; then
   echo "Homebrew not installed."
   echo "Installing Homebrew..."
@@ -13,6 +11,4 @@ else
   echo "Brew is already installed. Skipping installation..."
 fi
 
-brew bundle
-
-popd
+brew bundle --file ./setup/Brewfile

@@ -5,10 +5,10 @@
 #=============================================
 echo "Installing dotfiles..."
 
-dotfiles="$(ls -A ./dots)"
-GLOBIGNORE=".:.." && for dot in $dotfiles; do
-  from="$HOME/.dotfiles/dots/$dot"
-  to="$HOME/$dot"
+for dot in dots/.*; do
+  file=$(basename $dot)
+  from="$HOME/.dotfiles/dots/$file"
+  to="$HOME/$file"
 
   if [ -L "$to" ] ; then
     echo "File is already linked: $to"
@@ -63,6 +63,9 @@ bash ./setup/brew.sh
 echo "> Rust"
 bash ./setup/rust.sh
 
+echo "> Node"
+bash ./setup/node.sh
+
 echo "> Python"
 bash ./setup/pip.sh
 
@@ -116,7 +119,7 @@ for i in "${vsconfs[@]}"; do
 done
 
 while read in; do
-  vs --install-extension "$in"
+  code --install-extension "$in"
 done < "$HOME/.dotfiles/vscode/extensions"
 
 
