@@ -29,7 +29,7 @@ alias vim='nvim'
 #============================================
 
 alias code='cd ~/Code'
-alias notes='cd ~/Documents/ObsidianNotes/Tom/'
+alias notes='cd ~/Documents/Notes/Tom/'
 alias toml='cd ~/Code/toml'
 alias work='cd ~/Code/work'
 

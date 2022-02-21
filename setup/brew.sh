@@ -2,6 +2,8 @@
 
 source $HOME/.aliases
 
+pushd `dirname "$0"`
+
 if ! program_exists brew; then
   echo "Homebrew not installed."
   echo "Installing Homebrew..."
@@ -12,3 +14,5 @@ else
 fi
 
 brew bundle
+
+popd

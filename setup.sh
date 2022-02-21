@@ -15,7 +15,7 @@ GLOBIGNORE=".:.." && for dot in $dotfiles; do
     continue
   fi
 
-  [ ! -d "$from" ] && [ ! -e "$to" ] && ln -s $from $to && echo "Linked $to"
+  [ ! -d "$from" ] && [ ! -e "$to" ] && ln -s "$from" "$to" && echo "Linked $to"
 done
 
 touch $HOME/.custom

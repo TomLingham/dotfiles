@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/Documents/ObsidianNotes/Tom
+cd ~/Documents/Notes/Tom
 
 echo "$(date): Starting sync notes..."
 

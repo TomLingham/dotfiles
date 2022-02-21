@@ -105,5 +105,8 @@
   ],
   "typescript.preferences.importModuleSpecifier": "relative",
   "rust-analyzer.inlayHints.enable": false,
-  "window.zoomLevel": 1
+  "security.workspace.trust.banner": "never",
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.untrustedFiles": "open"
 }

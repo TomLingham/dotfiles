@@ -1,8 +1,10 @@
 tap "homebrew/cask-fonts"
 tap "federico-terzi/espanso"
 
+brew "colima"
 brew "coreutils"
 brew "docker"
+brew "docker-credential-helper"
 brew "espanso"
 brew "git"
 brew "go"
@@ -28,7 +30,6 @@ brew "zsh-autosuggestions"
 
 cask "android-studio"
 cask "calibre"
-cask "colima"
 cask "eqmac"
 cask "firefox"
 cask "flutter"
