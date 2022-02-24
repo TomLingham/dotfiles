@@ -7,6 +7,7 @@ set shell=zsh
 
 " Neovim support true colors
 set termguicolors
+set t_Co=256
 
 " This is not vi...
 set nocompatible
