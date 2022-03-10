@@ -13,8 +13,8 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-  # TERM variable
+env:
+  TERM: xterm-256color
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
@@ -102,18 +102,17 @@ window:
 
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    family: FiraCode Nerd Font
+    family: JetBrains Mono
     style: Regular
   bold:
-    family: FiraCode Nerd Font
+    family: JetBrains Mono
     style: Bold
   italic:
-    family: FiraCode Nerd Font
+    family: JetBrains Mono
     style: Italic
   bold_italic:
-    family: FiraCode Nerd Font
+    family: JetBrains Mono
     style: Bold Italic
   size: 12.0
 

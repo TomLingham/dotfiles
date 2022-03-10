@@ -34,7 +34,7 @@
   "cSpell.language": "en-GB",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeLens": false,
-  "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.renderWhitespace": "all",
@@ -50,7 +50,6 @@
   },
   "http.proxyStrictSSL": false,
   "javascript.validate.enable": false,
-  "plantuml.render": "PlantUMLServer",
   "plantuml.server": "http://127.0.0.1:7911",
   "prettier.requireConfig": true,
   "search.useIgnoreFiles": true,
@@ -108,5 +107,10 @@
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "extensions.ignoreRecommendations": true,
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "plantuml.jar": "/Users/tomlingham/.somebin/plantuml.jar"
 }
