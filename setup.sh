@@ -119,7 +119,7 @@ for i in "${vsconfs[@]}"; do
 done
 
 while read in; do
-  code --install-extension "$in"
+  vs --install-extension "$in"
 done < "$HOME/.dotfiles/vscode/extensions"
 
 
@@ -129,3 +129,6 @@ done < "$HOME/.dotfiles/vscode/extensions"
 
 # Disable long press accented characters
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Install FZF Shell History Search
+~/.fzf/install --no-bash --no-fish --no-update-rc

@@ -16,6 +16,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # FZF
 [ -s "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
 
+# Brew
+eval $(/opt/homebrew/bin/brew shellenv)
+
 
 #============================================
 # Prompt
@@ -28,12 +31,12 @@ eval "$(starship init zsh)"
 #============================================
 
 # zsh-autosuggest
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source <(go env)
 source <(npm completion)
 
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 
 
 #============================================
@@ -48,5 +51,3 @@ bindkey '^x^e' edit-command-line
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

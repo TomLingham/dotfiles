@@ -50,7 +50,6 @@
   },
   "http.proxyStrictSSL": false,
   "javascript.validate.enable": false,
-  "plantuml.server": "http://127.0.0.1:7911",
   "prettier.requireConfig": true,
   "search.useIgnoreFiles": true,
   "terminal.integrated.defaultProfile.osx": "zsh",
@@ -58,7 +57,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.enableNeovim": true,
   "vim.leader": "<space>",
-  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "f"],
@@ -97,13 +96,8 @@
   "redhat.telemetry.enabled": false,
   "editor.linkedEditing": true,
   "editor.bracketPairColorization.enabled": true,
-  "cSpell.userWords": [
-    "Kubernetes",
-    "Myob",
-    "reqwest"
-  ],
+  "cSpell.userWords": ["Kubernetes", "Myob", "reqwest"],
   "typescript.preferences.importModuleSpecifier": "relative",
-  "rust-analyzer.inlayHints.enable": false,
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
@@ -112,5 +106,12 @@
   "[dockercompose]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "plantuml.jar": "/Users/tomlingham/.somebin/plantuml.jar"
+  "plantuml.render": "PlantUMLServer",
+  "plantuml.server": "http://localhost:7911",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

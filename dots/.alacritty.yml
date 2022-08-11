@@ -361,10 +361,13 @@ colors:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux -u new -s Tom"
 
 # Startup directory
 #
