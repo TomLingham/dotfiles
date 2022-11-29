@@ -22,6 +22,7 @@ alias tmux='tmux -u -2'
 alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
+alias k='kubectl'
 
 
 #============================================
@@ -56,6 +57,7 @@ alias gitdw='git diff -w'
 alias gitl1='git lg1'
 alias gitl2='git lg2'
 alias gitl='git log --oneline'
+alias gitla='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias gitlb='git branch --sort=-committerdate'
 alias gitp='git push'
 alias gitpb='git push -u origin $(gitb)'

@@ -96,8 +96,12 @@
   "redhat.telemetry.enabled": false,
   "editor.linkedEditing": true,
   "editor.bracketPairColorization.enabled": true,
-  "cSpell.userWords": ["Kubernetes", "Myob", "reqwest"],
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "cSpell.userWords": [
+    "Kubernetes",
+    "Myob",
+    "plugins",
+    "reqwest"
+  ],
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
@@ -113,5 +117,8 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.enableFiletypes": [
+    "mdx"
+  ]
 }

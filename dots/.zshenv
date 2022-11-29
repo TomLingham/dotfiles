@@ -63,6 +63,16 @@ fpath+=("$HOME/.zfunc")
 
 
 #============================================
+# Android
+#============================================
+
+export ANDROID_HOME=$HOME/Library/Android
+export ANDROID_NDK_ROOT=$ANDROID_HOME/sdk/ndk/23.1.7779620
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+#============================================
 # Theme
 #============================================
 
@@ -84,3 +94,4 @@ source $HOME/.dotfiles/themes/dracula.sh
 #source $HOME/.dotfiles/themes/solarized.sh
 #source $HOME/.dotfiles/themes/molokai.sh
 #source $HOME/.dotfiles/themes/molokai.sh
+. "$HOME/.cargo/env"
