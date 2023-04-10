@@ -92,7 +92,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "editor.accessibilitySupport": "off",
-  "jest.autoRun": "off",
   "redhat.telemetry.enabled": false,
   "editor.linkedEditing": true,
   "editor.bracketPairColorization.enabled": true,
@@ -120,5 +119,8 @@
   },
   "cSpell.enableFiletypes": [
     "mdx"
-  ]
+  ],
+  "[python]": {
+    "editor.formatOnType": true
+  }
 }

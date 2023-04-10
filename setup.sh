@@ -28,16 +28,7 @@ echo "Completed setting up dotfiles!"; echo
 #=============================================
 echo "Installing Neovim configuration..."
 
-nvimconfs=(
-  init.vim
-  extras
-)
-
-mkdir -p $HOME/.config/nvim
-
-for i in "${nvimconfs[@]}"; do
-  ln -sF "$HOME/.dotfiles/config/nvim/${i}" "$HOME/.config/nvim/${i}"
-done
+ln -sF "$HOME/.dotfiles/config/nvim" "$HOME/.config/nvim"
 
 echo "Finished installing Neovim configuration!"; echo
 
