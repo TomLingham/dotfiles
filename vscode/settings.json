@@ -34,10 +34,11 @@
   "cSpell.language": "en-GB",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeLens": false,
-  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.renderWhitespace": "all",
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.tabSize": 2,
   "eslint.validate": ["typescript", "typescriptreact"],
   "explorer.compactFolders": false,
@@ -54,6 +55,7 @@
   "search.useIgnoreFiles": true,
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.scrollback": 6000,
+  "terminal.integrated.shellIntegration.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.enableNeovim": true,
   "vim.leader": "<space>",
@@ -87,7 +89,7 @@
   "vim.useCtrlKeys": true,
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
@@ -98,6 +100,7 @@
   "cSpell.userWords": [
     "Kubernetes",
     "Myob",
+    "Pepperstone",
     "plugins",
     "reqwest"
   ],
@@ -117,10 +120,20 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [100]
+  },
   "cSpell.enableFiletypes": [
     "mdx"
   ],
   "[python]": {
     "editor.formatOnType": true
-  }
+  },
+  "editor.inlayHints.fontFamily": "FiraCode Nerd Font",
+  "editor.minimap.enabled": false,
+  "hexeditor.columnWidth": 32,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside"
 }

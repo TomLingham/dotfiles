@@ -7,8 +7,8 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -103,16 +103,16 @@ window:
 # Font configuration
 font:
   normal:
-    family: JetBrains Mono
+    family: FiraCode Nerd Font
     style: Regular
   bold:
-    family: JetBrains Mono
+    family: FiraCode Nerd Font
     style: Bold
   italic:
-    family: JetBrains Mono
+    family: FiraCode Nerd Font
     style: Italic
   bold_italic:
-    family: JetBrains Mono
+    family: FiraCode Nerd Font
     style: Bold Italic
   size: 12.0
 
@@ -141,9 +141,6 @@ font:
 
 # Colors (Tomorrow Night)
 colors:
-  primary:
-    background: '0x282a36'
-    foreground: '0xeaeaea'
 
     # Bright and dim foreground colors
     #
@@ -210,39 +207,6 @@ colors:
   #selection:
   #  text: CellBackground
   #  background: CellForeground
-
-  # Normal colors
-  normal:
-    black:   '0x000000'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xc7c7c7'
-
-  # Bright colors
-  bright:
-    black:   '0x686868'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xffffff'
-
-  # Dim colors (Optional)
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
 
   # Indexed Colors
   #
@@ -367,7 +331,7 @@ shell:
   args:
     - -l
     - -c
-    - "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux -u new -s Tom"
+    - /opt/homebrew/bin/tmux
 
 # Startup directory
 #
