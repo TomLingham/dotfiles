@@ -29,8 +29,9 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.rulers": [80],
-  "breadcrumbs.enabled": true,
+  "editor.rulers": [
+    80
+  ],
   "cSpell.language": "en-GB",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeLens": false,
@@ -70,6 +71,14 @@
       ]
     },
     {
+      "before": ["<leader>", "g"],
+      "commands": [
+        {
+          "command": "editor.action.revealDefinition"
+        }
+      ]
+    },
+    {
       "before": ["<leader>", "r"],
       "commands": [
         {
@@ -88,21 +97,24 @@
   ],
   "vim.useCtrlKeys": true,
   "vsicons.dontShowNewVersionMessage": true,
-  "workbench.activityBar.visible": false,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true,
   "editor.accessibilitySupport": "off",
   "redhat.telemetry.enabled": false,
   "editor.linkedEditing": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.bracketPairColorization.enabled": true,
   "cSpell.userWords": [
+    "fastify",
     "Kubernetes",
     "Myob",
+    "openapi",
     "Pepperstone",
     "plugins",
-    "reqwest"
+    "reqwest",
+    "rolldown",
+    "tseslint"
   ],
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.enabled": false,
@@ -135,5 +147,23 @@
   "hexeditor.columnWidth": 32,
   "hexeditor.showDecodedText": true,
   "hexeditor.defaultEndianness": "little",
-  "hexeditor.inspectorType": "aside"
+  "hexeditor.inspectorType": "aside",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "application.shellEnvironmentResolutionTimeout": 20,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "never"
+  },
+  "markdown.extension.toc.updateOnSave": false,
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.activityBar.location": "hidden",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }

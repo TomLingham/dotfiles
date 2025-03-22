@@ -13,7 +13,7 @@ alias ls='gls'
 alias nix-shell='nix-shell --run zsh'
 alias ovim='/usr/local/bin/vim'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
-alias src='source ~/.zshenv'
+alias src='source ~/.zshenv; source ~/.zshrc'
 alias ssh='TERM=xterm-256color ssh'
 alias tml='tmux new-session -s Tomdizzle1'
 alias tmn='tmux attach || tmux -u new -s Tom'
@@ -23,6 +23,8 @@ alias v='nvim'
 alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 alias k='kubectl'
+
+alias fix-screenies='killall SystemUIServer'
 
 
 #============================================
@@ -68,6 +70,8 @@ alias gitrc='git rebase --continue'
 alias gits='git status -s'
 alias gitfa='git fetch --all'
 
+alias intellij='open -na "IntelliJ IDEA.app"'
+
 
 #============================================
 # CLI Augmentation
@@ -89,28 +93,31 @@ docker() {
   fi
 }
 
-jira() {
-  open "https://arlive.atlassian.net/browse/${1}"
-}
-
 vs() {
   command code $@
 }
 
 archive() {
   [ ! -f $1 ] && [ ! -d $1 ] && echo "File \"$1\" doesn't exist. Unable to archive." && return
+  mkdir -p ~/.ARCHIVE
   echo "Archiving \"$1\""
   DATE="$(date +%F)"
   FUZZ="$(jot -r 1  100000 999999)"
   FILENAME="$(basename $1)-$DATE-$FUZZ"
   NEWPATH="~/.ARCHIVE/$FILENAME"
-  mv "$1" "$NEWPATH"
+  mv $1 $NEWPATH
   echo "Archived to $NEWPATH"
 }
 
 #============================================
 # Utility Methods
 #============================================
+aws_docker_login() {
+  region=$(aws configure get region)
+  accountId=$(aws sts get-caller-identity --query 'Account' --output text)
+  echo "Logging into account: ${accountId} in region: ${region}"
+  aws ecr get-login-password | docker login -u AWS --password-stdin "${accountId}.dkr.ecr.${region}.amazonaws.com"
+}
 
 aws_sso_login() {
   select AWS_ACCOUNT in $(aws configure list-profiles)
@@ -152,7 +159,7 @@ vdiff() {
 
 playground() {
   echo "Preparing Workspace. Deleting previous playground..."
-  sleep 3
+  sleep 1
   archive ~/Code/.playground > /dev/null
   mkdir ~/Code/.playground
   cd ~/Code/.playground
@@ -160,4 +167,12 @@ playground() {
 
 wp() {
   lsof -i tcp:$1
+}
+
+watcher() {
+  while true; do
+    clear
+    eval $1
+    sleep ${2:-5}
+  done
 }

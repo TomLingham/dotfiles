@@ -10,3 +10,6 @@
   ignored = !git ls-files -v | grep "^[[:lower:]]"
 
   unstage = reset HEAD --
+  smash = !git add -A && git cane && git push -f && :
+
+  pf = push --force-with-lease

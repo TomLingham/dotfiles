@@ -6,6 +6,8 @@ export LANG="en_US.UTF-8"
 export RG_COMMAND="rg --hidden --ignore-file $HOME/.gitignore --ignore-file $HOME/.ignore --follow"
 export ACK_COMMAND="$RG_COMMAND --vimgrep --no-heading"
 
+export EDITOR="nvim"
+
 export VISUAL="nvim"
 
 # FZF
@@ -34,4 +36,5 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export ANDROID_NDK_ROOT=$ANDROID_HOME/sdk/ndk/23.1.7779620
+export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/26.1.10909125
+. "$HOME/.cargo/env"

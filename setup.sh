@@ -29,6 +29,7 @@ echo "Completed setting up dotfiles!"; echo
 echo "Installing Neovim configuration..."
 
 ln -sF "$HOME/.dotfiles/config/nvim" "$HOME/.config/nvim"
+ln -sF "$HOME/.dotfiles/config/alacritty" "$HOME/.config/alacritty"
 
 echo "Finished installing Neovim configuration!"; echo
 
@@ -98,7 +99,7 @@ mkdir -p $HOME/.vim/swap
 #=============================================
 # VS Code Configuration
 #=============================================
-mkdir -p "$HOMA/Library/Application Support/Code/User/"
+mkdir -p "$HOME/Library/Application Support/Code/User/"
 vsconfs=(
   keybindings.json
   settings.json
