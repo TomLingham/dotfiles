@@ -1,2 +1,3 @@
-  npm-check-updates
-  yarn
+npm-check-updates
+yarn
+@anthropic-ai/claude-code

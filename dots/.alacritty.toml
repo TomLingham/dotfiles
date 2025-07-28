@@ -1,4 +1,7 @@
-import = ["/Users/tomlingham/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+[general]
+import = [
+  "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
+]
 
 [env]
 TERM = "xterm-256color"
@@ -30,7 +33,7 @@ style = "Regular"
 x = 0
 y = 4
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "/opt/homebrew/bin/tmux"]
 program = "/bin/zsh"
 

@@ -36,9 +36,6 @@ path+=("$ANDROID_SDK_ROOT/platform-tools")
 # Cargo
 path+=("$HOME/.cargo/bin")
 
-# Golang
-path+=("`go env GOPATH`/bin")
-
 # Android SDKs
 path+=("$HOME/Library/Android/sdk/platform-tools")
 
@@ -62,7 +59,6 @@ export NVM_DIR="$HOME/.nvm"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source "$HOME/.cargo/env"
-source <(go env)
 
 eval "$(rbenv init - zsh)"
 
@@ -76,5 +72,5 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/tomlingham/.sdkman"
-[[ -s "/Users/tomlingham/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/tomlingham/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

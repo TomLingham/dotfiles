@@ -15,7 +15,7 @@ for dot in dots/.*; do
     continue
   fi
 
-  [ ! -d "$from" ] && [ ! -e "$to" ] && ln -s "$from" "$to" && echo "Linked $to"
+  [ ! -d "$from" ] && [ ! -e "$to" ] && ln -s "$from" "$to" && echo "Linked $from to $to"
 done
 
 touch $HOME/.custom
@@ -34,17 +34,6 @@ ln -sF "$HOME/.dotfiles/config/alacritty" "$HOME/.config/alacritty"
 echo "Finished installing Neovim configuration!"; echo
 
 #=============================================
-# Directories
-#=============================================
-
-# ZSH functions
-mkdir -p $HOME/.zfunc
-
-# Random bins
-mkdir -p $HOME/.somebin
-
-
-#=============================================
 # Run Installer Scripts
 #=============================================
 echo "Installing dependencies and packages..."
@@ -61,10 +50,11 @@ bash ./setup/node.sh
 echo "> Python"
 bash ./setup/pip.sh
 
-echo ">SDK Man"
+echo "> SDK Man"
 curl -s "https://get.sdkman.io" | bash
 
 echo "Finished installing dependencies and packages!"; echo
+
 
 #=============================================
 # Load terminfo for italics etc. in tmux
@@ -78,22 +68,6 @@ tic -x tmux-256color.terminfo
 #=============================================
 git config --global core.hooksPath "$HOME/.dotfiles/git/hooks"
 git config --global core.excludesfile "$HOME/.gitignore"
-
-git config --global alias.cane 'commit --amend --no-edit'
-git config --global alias.unstage 'reset HEAD --'
-
-
-#=============================================
-# Install Vim Plug
-#=============================================
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-vim +PlugInstall +qall
-
-mkdir -p $HOME/.vim/undo
-mkdir -p $HOME/.vim/backup
-mkdir -p $HOME/.vim/swap
 
 
 #=============================================
@@ -122,5 +96,3 @@ done < "$HOME/.dotfiles/vscode/extensions"
 # Disable long press accented characters
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Install FZF Shell History Search
-~/.fzf/install --no-bash --no-fish --no-update-rc

@@ -7,4 +7,3 @@ if ! program_exists rustup ; then
 fi
 
 rustup completions zsh > ~/.zfunc/_rustup
-rustup component add rls rust-analysis rust-src

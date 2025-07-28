@@ -29,10 +29,24 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.tabSize": 4,
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
   "editor.rulers": [
     80
   ],
-  "cSpell.language": "en-GB",
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeLens": false,
   "editor.fontFamily": "FiraCode Nerd Font",
@@ -45,10 +59,10 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "explorer.openEditors.visible": 0,
   "files.associations": {
     "Dockerfile*": "dockerfile",
-    "Jenkinsfile*": "groovy"
+    "Jenkinsfile*": "groovy",
+    "*.mdx": "mdx"
   },
   "http.proxyStrictSSL": false,
   "javascript.validate.enable": false,
@@ -65,33 +79,25 @@
     {
       "before": ["<leader>", "f"],
       "commands": [
-        {
-          "command": "editor.action.formatDocument"
-        }
+        { "command": "editor.action.formatDocument" }
       ]
     },
     {
       "before": ["<leader>", "g"],
       "commands": [
-        {
-          "command": "editor.action.revealDefinition"
-        }
+        { "command": "editor.action.revealDefinition" }
       ]
     },
     {
       "before": ["<leader>", "r"],
       "commands": [
-        {
-          "command": "editor.action.rename"
-        }
+        { "command": "editor.action.rename" }
       ]
     },
     {
       "before": ["<leader>", "d"],
       "commands": [
-        {
-          "command": "docthis.documentThis"
-        }
+        { "command": "docthis.documentThis" }
       ]
     }
   ],
@@ -101,53 +107,16 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
   "editor.accessibilitySupport": "off",
-  "redhat.telemetry.enabled": false,
   "editor.linkedEditing": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.bracketPairColorization.enabled": true,
-  "cSpell.userWords": [
-    "fastify",
-    "Kubernetes",
-    "Myob",
-    "openapi",
-    "Pepperstone",
-    "plugins",
-    "reqwest",
-    "rolldown",
-    "tseslint"
-  ],
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.startupPrompt": "never",
   "security.workspace.trust.untrustedFiles": "open",
   "extensions.ignoreRecommendations": true,
-  "[dockercompose]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "plantuml.render": "PlantUMLServer",
-  "plantuml.server": "http://localhost:7911",
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[rust]": {
-    "editor.tabSize": 4,
-    "editor.rulers": [100]
-  },
-  "cSpell.enableFiletypes": [
-    "mdx"
-  ],
-  "[python]": {
-    "editor.formatOnType": true
-  },
   "editor.inlayHints.fontFamily": "FiraCode Nerd Font",
   "editor.minimap.enabled": false,
-  "hexeditor.columnWidth": 32,
-  "hexeditor.showDecodedText": true,
-  "hexeditor.defaultEndianness": "little",
-  "hexeditor.inspectorType": "aside",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "application.shellEnvironmentResolutionTimeout": 20,
@@ -159,11 +128,21 @@
   "markdown.extension.toc.updateOnSave": false,
   "workbench.tree.enableStickyScroll": false,
   "workbench.activityBar.location": "hidden",
-  "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  }
+  "tailwindCSS.experimental.classRegex": [
+    ["vrnts\\(([^;]*)\\);", "\"([^\"]*)\""],
+    ["vrnts\\(([^;]*)\\);", "\\`([^\\`]*)\\`"]
+  ],
+  "emmet.showExpandedAbbreviation": "never",
+  "workbench.editorAssociations": {
+    "*.glb": "default"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.language": "en-GB",
+  "workbench.editor.empty.hint": "hidden",
+  "cSpell.userWords": [
+    "Pepperstone"
+  ],
+  "editor.wordWrap": "on"
 }

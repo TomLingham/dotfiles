@@ -15,12 +15,7 @@ alias ovim='/usr/local/bin/vim'
 alias serve='python ~/.dotfiles/scripts/python-server.py'
 alias src='source ~/.zshenv; source ~/.zshrc'
 alias ssh='TERM=xterm-256color ssh'
-alias tml='tmux new-session -s Tomdizzle1'
-alias tmn='tmux attach || tmux -u new -s Tom'
-alias tmr='tmux attach -t Tomdizzle2 || tmux new-session -t Tomdizzle1 -s Tomdizzle2'
-#alias tmux='tmux -u -2'
 alias v='nvim'
-alias vend='cd $SOURCE_DIR'
 alias vim='nvim'
 alias k='kubectl'
 
@@ -30,16 +25,10 @@ alias fix-screenies='killall SystemUIServer'
 #============================================
 # "Speed-dial"
 #============================================
-
 alias code='cd ~/Code'
 alias notes='cd ~/Notes/'
 alias toml='cd ~/Code/toml'
 alias work='cd ~/Code/work'
-
-#============================================
-# AWS
-#============================================
-alias aws-docker-login='$(aws ecr get-login --no-include-email --region ap-southeast-2)'
 
 
 #============================================
@@ -69,8 +58,6 @@ alias gitra='git rebase --abort'
 alias gitrc='git rebase --continue'
 alias gits='git status -s'
 alias gitfa='git fetch --all'
-
-alias intellij='open -na "IntelliJ IDEA.app"'
 
 
 #============================================
@@ -112,13 +99,6 @@ archive() {
 #============================================
 # Utility Methods
 #============================================
-aws_docker_login() {
-  region=$(aws configure get region)
-  accountId=$(aws sts get-caller-identity --query 'Account' --output text)
-  echo "Logging into account: ${accountId} in region: ${region}"
-  aws ecr get-login-password | docker login -u AWS --password-stdin "${accountId}.dkr.ecr.${region}.amazonaws.com"
-}
-
 aws_sso_login() {
   select AWS_ACCOUNT in $(aws configure list-profiles)
   do
@@ -127,6 +107,17 @@ aws_sso_login() {
     aws sts get-caller-identity
     break
   done
+}
+
+aws_docker_login() {
+  AWS_ACCOUNT_ID=$(aws sts get-caller-identity | jq -r .Account)
+  echo "Attempting docker login to AWS account ID '$AWS_ACCOUNT_ID'"
+  aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com
+}
+
+aws_clear_sessions() {
+  rm -rf ~/.aws/cli/cache ~/.aws/sso/cache
+  unset AWS_PROFILE
 }
 
 # Check if a program exists
